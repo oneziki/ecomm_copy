@@ -1,0 +1,79 @@
+.App {
+  // NAVBAR STYLES
+
+  // Main navigation styles
+  .topnav {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Universal Themeing
+  .dark {
+    background-color: $flash-black;
+  }
+  .light {
+    background-color: $flash-white;
+    color: $flash-black;
+  }
+
+  // Universal Navbar Styles
+  .main_nav {
+    padding: 9px;
+    border-bottom: solid 3px $grey2;
+
+    .humburger_menu {
+      padding-right: 10px;
+    }
+    .logged_in_user .username span {
+      font-family: "Gilroy-Bold";
+      color: $flash-black;
+      font-size: 14px;
+      line-height: 19.6px;
+      font-weight: 700;
+      letter-spacing: normal;
+    }
+    // User Login Buttons
+    .login_buttons {
+      display: flex;
+    }
+    .button {
+      border: none;
+      padding: 10px;
+      font-size: 14px;
+      line-height: 19.6px;
+      height: 40px;
+      width: 92px;
+      font-family: "Gilroy-Bold";
+      font-weight: bold;
+      text-align: center;
+      border-radius: 6px;
+    }
+
+    .carticon {
+      background-color: $grey3;
+      padding: 7px;
+      border-radius: 65%;
+      width: 48px;
+      text-align: center;
+      color: $flash-black;
+    }
+  }
+
+  // HERO SECTION
+
+  .mainHero {
+    background-color: #001023;
+    border-radius: 0px 0px 20px 20px;
+    height: 710px;
+    display: block;
+    @include app-defaults;
+
+    .mainHeroCol {
+      background-color: red;
+      max-width: 80%;
+      margin: auto;
+    }
+  }
+
+  // SUBNAV STYLES
+}

@@ -1,0 +1,45 @@
+// these are the required extended styles
+@import "../src/assets/partials/mixins";
+@import "../src/assets/partials/colours";
+@import "../src/assets/partials/fonts";
+@import "../src/assets/partials/global_variables";
+@import "../src/assets/partials/buttons";
+@import "../src/assets/partials/typography";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css");
+
+
+
+// BODY STYLES
+body {
+
+  background-color: $grey3;
+
+  .App {
+    @include app-defaults;
+    @include mobile-responsive;
+
+    .dark {
+      background-color: $flash-black;
+      color: $flash-white;
+    }
+    .light {
+      background-color: transparent;
+      color: $flash-black;
+    }
+
+    .yellow-btn {
+      background-color: #FFD400;
+      color: $flash-black;
+    }
+    .orange-btn {
+      background-color: #EB810C;
+    }
+    .pink-btn {
+      background-color: #F6267D;
+    }
+    .purple-btn {
+      background-color: #9231FC;
+    }
+  }
+
+}

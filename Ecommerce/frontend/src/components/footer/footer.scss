@@ -1,0 +1,65 @@
+@import "../../index.scss";
+
+.footer {
+  background-color: $flash-black;
+  border-radius: 36px 36px 0 0;
+  padding: 40px 0;
+}
+
+.f-row {
+  max-width: 1312px;
+  text-align: center;
+
+  .row {
+    .col p {
+      color: $flash-white;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: Gilroy-Bold;
+      margin-bottom: 1;
+      letter-spacing: 0.04em;
+    }
+    i {
+      color: $flash-white;
+      font-size: 20px;
+      padding-right: 20px;
+    }
+    hr {
+      margin: 20px 0;
+      background-color: $flash-white;
+    }
+  }
+}
+
+#terms {
+  padding: 36px 0;
+  .ww {
+    display: none;
+  }
+  a {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: Gilroy-Light;
+    font-weight: normal;
+    color: $flash-white;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    width: 102px;
+    text-align: center;
+    padding: 0 20px;
+  }
+}
+#footer-credits a {
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Gilroy-Light;
+  font-weight: 400;
+  color: $grey5;
+  line-height: 19.6px;
+  letter-spacing: 0.02em;
+}
+#bottomLogo {
+  width: 247px;
+}
+
+

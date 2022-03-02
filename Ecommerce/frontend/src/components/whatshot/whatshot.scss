@@ -1,0 +1,79 @@
+@import "../../index.scss";
+
+.whatshot {
+  background-color: $flash-purple-2;
+  height: 700px;
+  text-align: center;
+  padding: 74px 0;
+
+  .title h1 {
+    margin: 0;
+    padding: 20px 0;
+    font-family: Gilroy-Bold;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: left;
+    color: $flash-white;
+  }
+
+  .hotcards {
+    .title {
+      text-align: left;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      font-size: 36px;
+      width: 160px;
+      line-height: 39.6px;
+      color: $flash-white;
+    }
+    button {
+      width: 225px;
+      height: 48px;
+      border-radius: 6px;
+      padding: 13px 20px 20px 20px;
+      background-color: $flash-purple;
+      color: $flash-white;
+      font-size: 16px;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      border: none;
+      text-align: center;
+      float: left;
+      margin-top: 25px;
+    }
+    .yellow-btn {
+      background-color: #FFD400;
+      color: $flash-black;
+    }
+    .orange-btn {
+      background-color: #EB810C;
+    }
+    .pink-btn {
+      background-color: #F6267D;
+    }
+    .purple-btn {
+      background-color: #9231FC;
+    }
+  } .card{
+    height: 326px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: none;
+  }
+  .shopall {
+    padding: 20px 0;
+
+    button {
+      width: 262px;
+      height: 62px;
+      border-radius: 6px;
+      padding: 18px 20px 20px 20px;
+      background-color: $flash-green;
+      color: $flash-black;
+      font-size: 18px;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      border: none;
+    }
+  }
+}

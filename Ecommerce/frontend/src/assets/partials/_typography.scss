@@ -1,0 +1,47 @@
+h1 {
+    font-family: Gilroy-Regular;
+    font-size: 76px;
+    line-height: 76px;
+    letter-spacing: normal;
+    font-weight: 700;
+  }
+  h2 {
+    font-family: Gilroy-Bold;
+    font-size: 52px;
+    line-height: 52px;
+    letter-spacing: normal;
+    font-weight: 700;
+  }
+  h3 {
+    font-family: Gilroy-Regular;
+    font-size: 36px;
+    line-height: 36px;
+    letter-spacing: normal;
+    font-weight: 700;
+  }
+  h4 {
+    font-family: Gilroy-Medium;
+    font-size: 26px;
+    line-height: 26px;
+    letter-spacing: normal;
+    font-weight: 700;
+  }
+  h5 {
+    font-family: Gilroy-Regular;
+    font-size: 19px;
+    line-height: 19px;
+    letter-spacing: normal;
+    font-weight: 700;
+  }
+
+  p {
+      font-size: 18px;
+      font-family: Gilroy-Regular;
+      font-weight: 400;
+      line-height: 21.6px;
+      color: $flash-black;
+  }
+
+  .h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 0px;
+  }

@@ -1,0 +1,117 @@
+@import "../../index.scss";
+
+.latestdeals {
+  background-color: $grey3;
+  height: 690px;
+  text-align: center;
+  padding: 35px 0;
+  position: relative;
+  z-index: -2;
+
+  .title h1 {
+    margin: 0;
+    padding: 20px 0;
+    font-family: Gilroy-Bold;
+    font-weight: 700;
+    font-size: 45px;
+    text-align: left;
+    color: $flash-black;
+  }
+
+  .hotcards {
+    button {
+      width: 162px;
+      height: 48px;
+      border-radius: 6px;
+      padding: 13px 20px 20px 20px;
+      background-color: $flash-purple;
+      color: $flash-white;
+      font-size: 16px;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      border: none;
+      text-align: center;
+      float: left;
+      margin-top: 25px;
+    }
+  }
+
+  .colcard {
+    width: 20%;
+  }
+  .card {
+    height: 100%;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    border: none;
+
+    .cbody {
+      text-align: left;
+      margin-left: 10px;
+      margin-top: 10px;
+      padding-bottom: 0;
+
+      h6 {
+        font-size: 14px;
+        font-weight: 400;
+        font-family: gilroy-Regular;
+        color: $grey4;
+        line-height: 19.6px;
+        letter-spacing: 0.02em;
+      }
+      h4 {
+        font-family: Gilroy-Bold;
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 21.85px;
+        color: $flash-black;
+        margin-bottom: 5px;
+      }
+      h5 {
+        font-family: Gilroy-Bold;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16.8px;
+        color: $grey4;
+        letter-spacing: 0.16em;
+      }
+      h2 {
+        font-family: Gilroy-Bold;
+        font-size: 26px;
+        line-height: 31.2px;
+        color: $flash-black;
+        vertical-align: middle;
+        display: flex;
+        line-height: 22px;
+      }
+      span {
+        font-family: Gilroy-Regular;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 21.6px;
+        color: $grey4;
+        padding-left: 10px;
+      }
+    }
+    .img {
+      border-radius: 20px;
+      height: 176px;
+      border: solid 0.1px $grey5;
+    }
+  }
+  .shopall {
+    padding: 20px 0;
+    button {
+      width: 262px;
+      height: 62px;
+      border-radius: 6px;
+      padding: 18px 20px 20px 20px;
+      background-color: $flash-black;
+      color: $flash-white;
+      font-size: 18px;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      border: none;
+    }
+  }
+}

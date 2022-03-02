@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "headings",
+  "info": {
+    "singularName": "heading",
+    "pluralName": "headings",
+    "displayName": "heading"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "login": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "signup": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

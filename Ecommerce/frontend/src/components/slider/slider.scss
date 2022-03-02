@@ -1,0 +1,36 @@
+@import "../../index.scss";
+
+#were {
+  margin-bottom: -5%;
+  .carousel-caption {
+    display: none;
+  }
+  .carousel-item img {
+    height: 570px;
+  }
+  .carousel-inner {
+    border-radius: 36px;
+  }
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+.carousel-control-prev {
+  span {
+    margin-right: 5em;
+    height: 3em;
+    display: flex;
+    // margin: auto;
+    width: 3em;
+  }
+}
+.carousel-control-next {
+  span {
+    margin-left: 5em;
+    height: 3em;
+    display: flex;
+    // margin: auto;
+    width: 3em;
+  }
+}

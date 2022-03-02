@@ -1,0 +1,107 @@
+// @import "../../index.scss";
+@import "../../assets/partials/colours";
+
+.landing {
+  background-color: $flash-black;
+  position: relative;
+  z-index: 1;
+  height: 982px;
+  text-align: center;
+  padding: 87px 0;
+  border-radius: 0 0 36px 36px;
+
+  #heading {
+    font-size: 65px;
+    color: $flash-white;
+    font-family: Gilroy-Bold;
+    line-height: 65px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    margin-bottom: 0;
+    span {
+      color: $flash-green;
+    }
+  }
+#sliderColum {
+  margin: 40px 0px 40px 0px;
+  position: relative;
+  z-index: -2;
+}
+  #cards {
+    color: $flash-white;
+    margin: 0 25px;
+    a {
+      width: 100%;
+      text-decoration: none;
+      color: black;
+      display: block;
+      transition: 0.25s ease;
+
+      &:hover {
+        transform: translate(-0px, -20px);
+      }
+    }
+    .card {
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      border-radius: 12px;
+      img {
+        margin: 6px;
+        width: 40%;
+        border-radius: 6px;
+      }
+      .card-body {
+        padding: 1rem 0rem;
+      }
+    }
+    .card-title {
+      font-weight: 700;
+      font-family: Gilroy-Bold;
+      font-size: 18px;
+      color: black;
+    }
+    .card-text {
+      margin: 0;
+      font-family: Gilroy-Medium;
+      font-size: 14px;
+      color: $grey5;
+      padding-bottom: 5px;
+    }
+
+    // @media only screen and (max-width: 768px) {
+    //   a {
+    //     display: none;
+    //   }
+    //   .card-body {
+    //     padding: 0.5em 1.2em;
+    //   }
+    //   .card-body .card-text {
+    //     margin: 0;
+    //     font-family: Gilroy-Medium;
+    //     font-size: 14px;
+    //     color: $grey1;
+    //   }
+    //   .card img {
+    //     width: 50%;
+    //   }
+    // }
+    // @media only screen and (max-width: 1200px) {
+    //   .card img {
+    //     width: 40%;
+    //   }
+    // }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #heading {
+    font-size: 35px !important;
+  }
+  .landing {
+    padding: 135px 0;
+    .mainLanding {
+
+    }
+  }
+}

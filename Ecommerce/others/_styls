@@ -1,0 +1,249 @@
+.App {
+  display: block;
+
+  /* Smartphones (portrait and landscape) ----------- */
+  @media only screen and (max-device-width: 500px) {
+    /* Styles */
+    text-align: start;
+    color: $flash-black;
+    font-family: Gilroy-Regular;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: $go-green;
+    // background-image: url(".../src/public/bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .bg-light {
+      background-color: $flash-white;
+    }
+
+    .navmenu {
+      width: 100%;
+      display: block;
+      padding: 1rem;
+      border-top: solid 1px $grey3;
+    }
+    .btn-col .col-d {
+      margin: auto;
+      padding-left: 0;
+    }
+    .col-e {
+      margin: auto;
+      padding-left: 4rem;
+    }
+
+    .dark {
+      color: $flash-black;
+    }
+
+    .btn-primary-no-arrow {
+      background-color: $flash-black;
+    }
+
+    .btn-s {
+      width: $b-sm;
+      height: $h-sm;
+      font-family: Gilroy-Bold;
+      text-transform: capitalize;
+      font-size: 14px;
+      line-height: 19.2px;
+      font-weight: 700;
+      border-radius: 8px;
+      border: none;
+    }
+
+    // this is the main header styles with text format styles added
+
+    .header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+
+      a {
+        color: $flash-black;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 14px;
+        font-family: "Gilroy-Regular";
+        line-height: 19.6px;
+        // padding-right: 2rem;
+      }
+    }
+
+    // this is the main page text style on router blocks
+    .discover {
+      background-color: $grey3;
+      background-image: url("../public/home_background.png");
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 0.5rem 2rem;
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+
+      .mainblock {
+        padding: 5rem 0 3rem 0;
+        background-color: transparent;
+        h6 {
+          font-size: 12px;
+          font-weight: 700;
+          font-family: "Gilroy-Bold";
+          line-height: 16.8px;
+          letter-spacing: 5px;
+          text-transform: uppercase;
+          color: $grey6;
+        }
+        h1 {
+          font-size: 52px;
+          font-weight: 700;
+          font-family: "Gilroy-Bold";
+          line-height: 1;
+        }
+      }
+      .searchbar {
+        margin-bottom: 20px;
+        background-color: red;
+        height: 3rem;
+        align-items: center;
+        display: flex;
+        // background-color: transparent;
+      }
+    }
+
+    // these are the login form mobile styles
+    .transparent-white {
+      background-color: $flash-transparent-white;
+    }
+    .loginform {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      color: $flash-white;
+      font-family: Gilroy-Regular;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19.6px;
+
+      .title {
+        background-color: $flash-transparent-black;
+        padding: 1.2rem;
+        border-radius: 20px;
+
+        form input {
+          background-color: $flash-transparent-test;
+          border: 1px solid $flash-white;
+          border-radius: 8px;
+          height: 48px;
+        }
+        .form-label {
+          font-family: Gilroy-Regular;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 19.6px;
+          color: $flash-white;
+        }
+        #forgotpassword {
+          float: right;
+          padding: 0 0 25px 0;
+        }
+
+        .btn-large {
+          width: 100%;
+          font-size: 16px;
+          font-family: "Gilroy-Bold";
+          font-weight: 700;
+          height: 3rem;
+        }
+      }
+
+      .form-control {
+        color: $flash-white;
+        font-weight: 600;
+      }
+      #heading {
+        padding: 1.2rem;
+        h2 {
+          font-family: "Gilroy-Bold";
+          line-height: 31.2px;
+          font-weight: 700;
+          font-size: 26px;
+          color: $flash-black;
+        }
+      }
+
+      .loginOr {
+        text-align: center;
+
+        h1 {
+          overflow: hidden;
+          text-align: center;
+          font-size: 13px;
+          color: $grey6;
+          margin-bottom: 0;
+        }
+
+        h1:before,
+        h1:after {
+          background-color: $grey6;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          position: relative;
+          vertical-align: middle;
+          width: 20%;
+        }
+
+        h1:before {
+          right: 0.5em;
+          margin-left: -50%;
+        }
+
+        h1:after {
+          left: 0.5em;
+          margin-right: -50%;
+        }
+      }
+
+      .loginopt {
+        justify-content: space-between;
+        button {
+          padding: 0 1.5rem;
+
+          h6 {
+            display: contents;
+          }
+          span {
+            font-size: 22px;
+            margin-right: 10px;
+          }
+        }
+      }
+      .main {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+
+      h1 {
+        margin: 10px;
+        font-size: 40px;
+        color: rgb(1, 1, 59);
+      }
+
+      .search {
+        width: 30%;
+      }
+
+      ul li {
+        font-size: 20px;
+      }
+    }
+  }
+}

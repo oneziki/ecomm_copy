@@ -1,0 +1,136 @@
+// these are my usedful mixins
+@mixin resets {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin app-defaults {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1521px;
+  background-color: none;
+  height: 100vh;
+}
+
+@mixin hidden {
+  display: none;
+}
+
+// THESE ARE THE MOBILE RESPONSIVE STYLES
+@mixin mobile-responsive {
+  // @media only screen and (min-device-width: 500px) {
+  //   .humburger_menu {
+  //     display: none;
+  //   }
+  // }
+  @media only screen and (max-width: 480px) {
+    background-color: $grey2;
+    .header {
+      display: none;
+    }
+    .landing {
+      .mainLanding {
+        padding: 0 20px;
+      }
+      #heading {
+        font-size: 35px;
+        margin-bottom: 5px;
+      }
+      #cards {
+        display: none;
+      }
+    }
+    .latestdeals {
+      display: none;
+    }
+    .whatshot {
+      height: fit-content;
+      padding: inherit;
+      .title h1 {
+        font-size: 28px;
+      }
+      .hotcards .title {
+        font-size: 25px;
+        width: 170px;
+      }
+      .inner {
+        padding: 0 30px !important;
+      }
+      .shopall {
+        display: none;
+      }
+    }
+    .shopbybrand {
+      background-color: $grey2;
+      padding: 35px 0;
+      .viewmore {
+        padding: 20px 0px 50px 0;
+        button {
+          width: 326px;
+        }
+      }
+      .title h1 {
+        padding: 0;
+        margin: 0 15px;
+        font-size: 28px;
+        float: left;
+      }
+      .allcards {
+        margin: 5px;
+        justify-content: flex-start;
+      }
+      .brand {
+        padding: 5px 0;
+        .card {
+          background-color: transparent;
+          margin: 0;
+          padding: 7px;
+        }
+        img {
+          width: 105px;
+        }
+      }
+    }
+    .footer {
+      padding: 40px 20px;
+      .f-row {
+        text-align: start;
+        .row {
+          .col p {
+            color: $flash-white;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: Gilroy-Bold;
+            margin-bottom: 1;
+            letter-spacing: 0.02em;
+          }
+        }
+        #terms {
+          display: grid;
+          a {
+            width: 100%;
+            text-align: left;
+            padding: 10px 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: Gilroy-Medium;
+            font-weight: normal;
+            color: $flash-white;
+            line-height: 19.4px;
+            letter-spacing: 0.02em;
+          }
+        }
+        #footer-credits a {
+          text-decoration: none;
+          font-size: 13px;
+          font-family: Gilroy-Medium;
+          font-weight: 600;
+          color: $grey5;
+          line-height: 16.9px;
+          letter-spacing: 0.01em;
+        }
+      }
+    }
+  }
+}

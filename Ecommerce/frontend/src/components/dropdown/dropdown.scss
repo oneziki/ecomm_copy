@@ -1,0 +1,135 @@
+@import "../../assets/partials/colours";
+
+#dropdown-basic {
+  background-color: transparent;
+  color: $grey6;
+  border: none;
+  font-size: 16px;
+  font-family: Gilroy-Regular;
+  font-weight: 700;
+  .name {
+    padding: 0 20px 0px 10px;
+  }
+}
+
+.dropdown {
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+
+  .card-first {
+    background-color: #cfdfed;
+    border: none;
+    border-radius: 8px;
+  }
+  .card-second {
+    background-color: #f7d4de;
+    border: none;
+    border-radius: 8px;
+  }
+  .card-last {
+    background-color: #d3f5f1;
+    border: none;
+    border-radius: 8px;
+  }
+  .myStyle {
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 115%;
+    letter-spacing: -0.01em;
+    font-feature-settings: "liga" off;
+  }
+  .myStyles {
+    font-family: Gilroy-Bold;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 140%;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-feature-settings: "liga" off;
+    text-transform: uppercase;
+  }
+}
+
+#first-col {
+  color: black !important;
+}
+#second-col {
+  margin-left: 30px;
+  a {
+    color: black !important;
+  }
+  .second-card {
+    border: none;
+    margin: 22px;
+    padding: 0;
+    margin-bottom: 13px;
+    span {
+      font-family: Gilroy-Regular;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 150%;
+      letter-spacing: 0.01em;
+      font-feature-settings: "liga" off;
+    }
+  }
+}
+
+.dropdown-menu {
+  position: absolute;
+  inset: -55px auto auto -400px !important;
+  transform: translate3d(771px, 222.5px, 0px);
+  padding: 80px 40px 40px;
+  z-index: -1;
+  width: 787px;
+  border-radius: 0 0 50px 50px;
+}
+.dropdown-item {
+  padding: 0;
+  a {
+    color: black !important;
+  }
+
+  .card {
+    margin-bottom: 10px;
+    .card-text {
+      display: grid;
+      margin: auto 15px;
+      color: black !important;
+      span:nth-child(2) {
+        font-family: Gilroy-Regular;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 140%;
+      }
+      span:nth-child(1) {
+        font-family: Gilroy-Bold;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 140%;
+        letter-spacing: 0.01em;
+        font-feature-settings: "liga" off;
+      }
+    }
+  }
+  .allproducts {
+    #seeall {
+      font-family: Gilroy-Bold;
+      width: 100%;
+      height: 40px;
+      background: none;
+      border: solid black 1px;
+      color: black;
+      border-radius: 6px;
+    }
+  }
+}
+.btn-primary {
+  box-shadow: none !important;
+}

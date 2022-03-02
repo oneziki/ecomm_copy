@@ -1,0 +1,138 @@
+@import "../../index.scss";
+
+.header {
+  position: fixed;
+  height: 64px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transition: 0.3s ease-in;
+  overflow: hidden;
+}
+.header-bg {
+  background-color: $flash-white;
+  a {
+    color: black !important;
+  }
+}
+
+.logo-bg {
+  color: red;
+}
+
+#navcontainer {
+  .logo {
+    #flashlogo {
+      padding: 20px 10px;
+      img {
+        width: 220px;
+      }
+    }
+  }
+  .row {
+    justify-content: space-between;
+  }
+  .aa {
+    order: 2;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .bb {
+    order: 2;
+    align-items: center;
+  }
+}
+
+$c-border: #97e128;
+.sparkle {
+  font-size: 16px;
+  font-family: Gilroy-Regular;
+  font-weight: 700;
+  max-width: 10em;
+  color: $flash-white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.u-hover--sparkle {
+  box-sizing: border-box;
+  position: relative;
+  padding: 10px 10px;
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: left;
+  }
+
+  &::before {
+    border-top: 0.2em solid $c-border;
+    border-bottom: 0em solid $c-border;
+    transform: scale3d(0, 1, 0);
+  }
+
+  &::after {
+    border-left: 0em solid $c-border;
+    border-right: 0em solid $c-border;
+    transform: scale3d(1, 0, 1);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    transform: scale3d(1, 1, 1);
+    transition: transform 900ms;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header {
+    height: 125px;
+  }
+  #navcontainer {
+    .logo {
+      #flashlogo {
+        padding: 18px 10px;
+      }
+    }
+    #logout {
+      display: none;
+    }
+    #price {
+      display: none;
+    }
+    .sparkle {
+      padding: 5px 5px !important;
+      font-size: 16px;
+      font-family: Gilroy-Bold;
+      font-weight: 700;
+      max-width: 10em;
+      color: $flash-white;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .aa {
+      order: 3;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bb {
+      order: 2;
+      justify-content: end;
+      align-items: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  #searchglass {
+    display: none !important;
+  }
+}

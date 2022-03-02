@@ -1,0 +1,61 @@
+@import "../../index.scss";
+
+.shopbybrand {
+  background-color: $flash-white;
+  height: 540px;
+  text-align: center;
+  padding: 50px 0;
+
+  .allcards {
+    justify-content: center;
+  }
+  .card-body {
+    padding: 0;
+  }
+  .title h1 {
+    margin: 0;
+    padding: 20px 0;
+    font-family: Gilroy-Bold;
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+  }
+  .brand {
+    margin: 0;
+    padding: 20px 0;
+    display: contents;
+
+    img {
+      // margin: 35% 0;
+      width: 150px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-clip: border-box;
+      border: none;
+      background-color: none;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  }
+  .viewmore {
+    padding: 20px 0;
+
+    button {
+      width: 262px;
+      height: 62px;
+      border-radius: 6px;
+      padding: 18px 20px 20px 20px;
+      background-color: $flash-black;
+      font-size: 18px;
+      font-family: Gilroy-Regular;
+      font-weight: 700;
+      border: none;
+    }
+  }
+}
