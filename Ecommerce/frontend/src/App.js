@@ -1,32 +1,40 @@
-// Resourses
 import "./index.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AllCategories from "./pages/all-catergories";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 import Home from "./pages/home";
-import Entertainment from './pages/entertainment';
-import Cart from './pages/cart';
-import Login from './pages/login';
-import Netflix from './pages/netflix';
-import Orders from './pages/orders';
-import SignUp from './pages/sign-up';
-import Data2 from "./Data2";
+import Products from "./pages/products";
+import ItemDetail from "./pages/itemDetail";
+import TestCart from "./pages/testCart";
 
+const App = () => {
 
-function App() {
-  const {products} = Data2;
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddProduct = (product) => {
+    const ProductExist = cartItems.find((item) => item.id === product.id);
+    if(ProductExist){
+      setCartItems(cartItems.map((item) => item.id === product.id ? 
+      {...ProductExist, quantity: ProductExist.quantity + 1}: item)
+      );
+      }
+      else{
+        setCartItems([...cartItems, { ...product, quantity: 1}]);
+      }
+    };
+
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="all-categories" exact element={<AllCategories />} />
-        <Route path="cart" exact element={<Cart />} />
-        <Route path="entertainemnt" exact element={<Entertainment />} />
-        <Route path="login" exact element={<Login />} />
-        <Route path="netflix" exact element={<Netflix products={products}/>} />
-        <Route path="orders" exact element={<Orders />} />
-        <Route path="sign-up" exact element={<SignUp />} />
+        <Route path="/" element={<Home />} />
+        <Route path="products" element={<Products />} />
+        <Route path="/itemDetail/:productCode/:value/:vendor/:img" element={<ItemDetail handleAddProduct={handleAddProduct} />} />
+        <Route path="/testCart" element={<TestCart cartItems={cartItems} handleAddProduct={handleAddProduct}/>} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

@@ -2,7 +2,7 @@
 
 .shopbybrand {
   background-color: $flash-white;
-  height: 540px;
+  height: auto;
   text-align: center;
   padding: 50px 0;
 
@@ -56,6 +56,31 @@
       font-family: Gilroy-Regular;
       font-weight: 700;
       border: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .shopbybrand {
+    padding: 0;
+    .allcards {
+      justify-content: start;
+    }
+    .title h1 {
+      text-align: start;
+      font-size: 24px;
+      padding-bottom: 0;
+    }
+    .brand .card {
+      margin-bottom: 0;
+      padding: 5px;
+    }
+    .brand img {
+      width: 115px;
+    }
+    .viewmore button {
+      width: 360px;
+      margin-bottom: 15px;
     }
   }
 }

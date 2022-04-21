@@ -1,7 +1,6 @@
 @import "../../assets/partials/colours";
 
 .search {
-  margin-top: 25px;
 
   #dropdown-basic {
     border-left: solid $grey2;
@@ -16,9 +15,9 @@
   #ww {
     background-color: $flash-white;
     border-radius: 50px;
-    padding: 0 25px;
+    // padding: 0 25px;
     box-shadow: 0px 0px 17px -5px #adb5bd;
-    min-width: 537px;
+    // min-width: 537px;
   }
 }
 .searchInputs {
@@ -78,7 +77,9 @@
   }
   a {
     text-decoration: none;
-    color: #fff !important;
+    color: black;
+    text-decoration: none;
+    list-style: none;
   }
   
   // a:hover {
@@ -90,12 +91,17 @@
   }
 
   @media only screen and (max-width: 480px) {
+    .mobilesearch {
+      display: none;
+    }
     .search {
       #ww {
-        width: 400px;
+        width: 355px;
+        height: 60px;
       }
       #dropdown {
         display: none;
       }
     }
+
   }

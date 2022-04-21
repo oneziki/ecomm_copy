@@ -1,9 +1,17 @@
 @import "../../index.scss";
 
+// .carousel {
+//   position: static !important;
+// }
 #were {
+  .cardtitle {
+    font-size: 50px;
+    font-weight: 700;
+    border-bottom: solid 2px white;
+  }
   margin-bottom: -5%;
   .carousel-caption {
-    display: none;
+    padding-bottom: 17.25rem;
   }
   .carousel-item img {
     height: 570px;
@@ -17,20 +25,61 @@
 }
 
 .carousel-control-prev {
+  opacity: 10;
+
   span {
-    margin-right: 5em;
-    height: 3em;
+    margin-right: 100px;
+    height: 40px;
+    width: 30px;
     display: flex;
     // margin: auto;
     width: 3em;
   }
 }
 .carousel-control-next {
+  opacity: 10;
   span {
-    margin-left: 5em;
-    height: 3em;
+    margin-left: 100px;
+    height: 40px;
+    width: 30;
     display: flex;
     // margin: auto;
     width: 3em;
+  }
+}
+.carousel-control-prev-icon {
+  background-image: url(./roundBtnLeft.png);
+}
+.carousel-control-next-icon {
+  background-image: url(./roundBtnRight.png);
+}
+@media only screen and (max-width: 480px) {
+  #were {
+    .cardtitle {
+      font-size: 24px;
+    }
+    .carousel-control-prev span {
+      margin-right: -10px;
+      height: 40px;
+      display: flex;
+      width: 3em;
+      margin-bottom: -288px;
+    }
+    .carousel-control-next span {
+      margin-left: -10px;
+      height: 40px;
+      display: flex;
+      width: 3em;
+      margin-bottom: -288px;
+    }
+    .carousel-inner {
+      border-radius: 20px;
+    }
+    .carousel-caption {
+      padding-bottom: 115px;
+    }
+    .carousel-item img {
+      height: 349px;
+    }
   }
 }

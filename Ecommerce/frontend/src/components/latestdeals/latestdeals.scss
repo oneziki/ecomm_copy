@@ -1,16 +1,18 @@
 @import "../../index.scss";
 
+
+
 .latestdeals {
   background-color: $grey3;
-  height: 690px;
+  height: auto;
   text-align: center;
-  padding: 35px 0;
-  position: relative;
-  z-index: -2;
-
-  .title h1 {
+  .colcard {
+    display: contents;
+  }
+  .title {
+    padding: 0;
+  } h1 {
     margin: 0;
-    padding: 20px 0;
     font-family: Gilroy-Bold;
     font-weight: 700;
     font-size: 45px;
@@ -19,6 +21,7 @@
   }
 
   .hotcards {
+
     button {
       width: 162px;
       height: 48px;
@@ -35,22 +38,14 @@
       margin-top: 25px;
     }
   }
-
-  .colcard {
-    width: 20%;
-  }
   .card {
-    height: 100%;
     border-radius: 20px;
-    margin-bottom: 25px;
+    margin: 5px;
     border: none;
 
     .cbody {
+      margin: 15px;
       text-align: left;
-      margin-left: 10px;
-      margin-top: 10px;
-      padding-bottom: 0;
-
       h6 {
         font-size: 14px;
         font-weight: 400;
@@ -95,12 +90,16 @@
     }
     .img {
       border-radius: 20px;
-      height: 176px;
-      border: solid 0.1px $grey5;
+      border: solid 0.9px $grey3;
+      transition: transform .7s ease-in-out;
     }
+    // img:hover {
+    //   transform: scale(1.3);
+    //   background-color: #b2fa00;
+    // }
   }
   .shopall {
-    padding: 20px 0;
+    padding: 3em 0;
     button {
       width: 262px;
       height: 62px;
@@ -112,6 +111,37 @@
       font-family: Gilroy-Bold;
       font-weight: 700;
       border: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 399px) {
+  .latestdeals {
+    h1 {
+      font-size: 28px;
+    }
+    .colcard {
+      display: contents;
+    }
+    .hotcards {
+
+      .title {
+        margin: 5px;
+      } h1 {
+        font-size: 28px;
+        padding: 0;
+      }
+      .card {
+        // width: 150px;
+        // background-color: transparent;
+        img {
+          max-width: 390px !important;
+        }
+        .cbody {
+          margin-top: 10;
+          margin: 0;
+        }
+      }
     }
   }
 }

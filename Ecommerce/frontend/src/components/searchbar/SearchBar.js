@@ -23,7 +23,7 @@ function SearchBar({ placeholder, data }) {
     <div className="search">
       <div className="searchInputs">
         <div id="ww" className="d-flex">
-        <div className="searchIcon">
+        <div className="searchIcon px-4">
           {" "}
           <SearchIcon />
         </div>

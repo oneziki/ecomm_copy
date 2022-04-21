@@ -2,7 +2,6 @@
 
 .header {
   position: fixed;
-  height: 64px;
   width: 100%;
   top: 0;
   left: 0;
@@ -13,7 +12,10 @@
 .header-bg {
   background-color: $flash-white;
   a {
-    color: black !important;
+    color: black;
+    &:hover {
+      color: #97E128;
+    }
   }
 }
 
@@ -21,13 +23,37 @@
   color: red;
 }
 
+.btn-lg {
+  font-size: 16px;
+  border-radius: 6px; 
+  margin: 10px 0px;
+  width: 92px;
+  color: black;
+}
+
 #navcontainer {
   .logo {
+    .menuicon {
+      display: none;
+    }
     #flashlogo {
-      padding: 20px 10px;
+      position: relative;
+      top: 18px;
+      left: 0;
+      padding: 0px;
+      // align-items: center;
+      justify-content: flex-start;
       img {
         width: 220px;
       }
+    }
+    .image1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .image2 {
+      position: absolute;
     }
   }
   .row {
@@ -37,10 +63,18 @@
     order: 2;
     justify-content: flex-end;
     align-items: center;
+    a {
+      &:hover {
+        color: #97e128;
+      }
+    }
   }
   .bb {
     order: 2;
     align-items: center;
+    a {
+      padding: 10px;
+    }
   }
 }
 
@@ -50,16 +84,19 @@ $c-border: #97e128;
   font-family: Gilroy-Regular;
   font-weight: 700;
   max-width: 10em;
+  color: black;
   color: $flash-white;
+  padding: 20px;
   &:hover {
     cursor: pointer;
+    color: #97E128;
   }
 }
 
 .u-hover--sparkle {
   box-sizing: border-box;
   position: relative;
-  padding: 10px 10px;
+  // padding: 10px 10px;
   &::before,
   &::after {
     content: "";
@@ -88,17 +125,47 @@ $c-border: #97e128;
   &:hover::after {
     transform: scale3d(1, 1, 1);
     transition: transform 900ms;
+    color:#97E128;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .header {
-    height: 125px;
+    height: auto;
+    position: absolute;
   }
   #navcontainer {
+    #lineseperate {
+      display: none;
+    }
     .logo {
+      .menuicon {
+        display: block;
+        position: relative;
+        top: 15px;
+        left: 0;
+        padding: 0px 10px 3px 3px;
+        align-items: center;
+        justify-content: flex-start;
+      }
       #flashlogo {
-        padding: 18px 10px;
+        position: relative;
+        top: 15px;
+        left: 0;
+        padding: 0px;
+        align-items: center;
+        justify-content: flex-start;
+        img {
+          width: 220px;
+        }
+      }
+      .image1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .image2 {
+        position: absolute;
       }
     }
     #logout {
@@ -108,7 +175,7 @@ $c-border: #97e128;
       display: none;
     }
     .sparkle {
-      padding: 5px 5px !important;
+      padding: 10px !important;
       font-size: 16px;
       font-family: Gilroy-Bold;
       font-weight: 700;
@@ -116,6 +183,7 @@ $c-border: #97e128;
       color: $flash-white;
       &:hover {
         cursor: pointer;
+        color: #97E128;
       }
     }
     .aa {

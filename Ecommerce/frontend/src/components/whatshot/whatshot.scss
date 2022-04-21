@@ -2,7 +2,7 @@
 
 .whatshot {
   background-color: $flash-purple-2;
-  height: 700px;
+  height: auto;
   text-align: center;
   padding: 74px 0;
 
@@ -26,12 +26,11 @@
       line-height: 39.6px;
       color: $flash-white;
     }
-    button {
+    .btn {
       width: 225px;
       height: 48px;
       border-radius: 6px;
       padding: 13px 20px 20px 20px;
-      background-color: $flash-purple;
       color: $flash-white;
       font-size: 16px;
       font-family: Gilroy-Bold;
@@ -40,21 +39,32 @@
       text-align: center;
       float: left;
       margin-top: 25px;
+      transition: 0.5s;
+
     }
+
+    .btn:hover {
+      padding-right: 10;
+      padding-left: 8px;
+      background-color: white;
+      color: black;
+    }
+
     .yellow-btn {
-      background-color: #FFD400;
+      background-color: #ffd400;
       color: $flash-black;
     }
     .orange-btn {
-      background-color: #EB810C;
+      background-color: #eb810c;
     }
     .pink-btn {
-      background-color: #F6267D;
+      background-color: #f6267d;
     }
     .purple-btn {
-      background-color: #9231FC;
+      background-color: #9231fc;
     }
-  } .card{
+  }
+  .card {
     height: 326px;
     border-radius: 20px;
     margin-bottom: 25px;
@@ -63,7 +73,7 @@
   .shopall {
     padding: 20px 0;
 
-    button {
+    .btn {
       width: 262px;
       height: 62px;
       border-radius: 6px;
@@ -74,6 +84,49 @@
       font-family: Gilroy-Bold;
       font-weight: 700;
       border: none;
+      transition: 0.5s;
+    }
+    .btn:hover {
+      padding-right: 24px;
+      padding-left: 8px;
+      background-color: white;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .whatshot {
+    padding: 0 15px;
+    .card {
+      height: 269px !important;
+    }
+    .shopall {
+      display: none;
+    }
+    .title h1 {
+      font-size: 28px;
+      padding: 0 10px;
+    }
+    .hotcards .title {
+      font-size: 24px;
+      line-height: 27.5px;
+    }
+    .hotcards .purple-btn {
+      width: 162px;
+      height: 48px;
+      font-size: 16px;
+    }
+    .hotcards .pink-btn {
+      width: 187px;
+      height: 48px;
+      font-size: 16px;
+    }
+    .hotcards .orange-btn {
+      width: 164px;
+      height: 48px;
+      font-size: 16px;
+      color: black;
+      background-color: #ffd400;
     }
   }
 }

@@ -1,8 +1,11 @@
 import React from 'react'
+import StyledCard from '../components/Card';
 
 function AllCategories() {
   return (
-    <div>all-catergories</div>
+    <div>
+      All Categories
+    </div>
   )
 }
 
