@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rows",
+  "info": {
+    "singularName": "row",
+    "pluralName": "rows",
+    "displayName": "row"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Description": {
+      "type": "string"
+    },
+    "Vendor": {
+      "type": "string"
+    },
+    "VendorId": {
+      "type": "integer"
+    },
+    "FaceValue": {
+      "type": "decimal"
+    },
+    "DefaultCost": {
+      "type": "decimal"
+    },
+    "ProductCode": {
+      "type": "integer"
+    },
+    "Name": {
+      "type": "decimal"
+    },
+    "ProductCodeAlt": {
+      "type": "string"
+    },
+    "ProductTypeEnum": {
+      "type": "string"
+    },
+    "ProductStatusEnum": {
+      "type": "string"
+    },
+    "CountryId": {
+      "type": "integer"
+    },
+    "Country": {
+      "type": "string"
+    },
+    "CountryAlpha2Code": {
+      "type": "string"
+    },
+    "Logo": {
+      "type": "string"
+    }
+  }
+}

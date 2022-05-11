@@ -1,72 +1,234 @@
 import React from "react";
-import CartCard from "../components/CartCard";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+  Link,
+  generatePath,
+} from "react-router-dom";
 import Ymal from "../components/you-might-also-like/ymal";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cart, setCart, handleChange }) => {
+  const handleRemove = (productCode) => {
+    setCart((cart) => cart.filter((item) => item.productCode !== productCode));
+  };
+
+  const price = cart.reduce(
+    (total, item) => total + item.amount * item.price,
+    0
+  );
+
   return (
     <>
       <div class="container-fluid" style={{ height: "100vh" }}>
         <div class="row">
           <div class="col-md-9 px-5">
-            <div class="row">
-              <div class="col-md-12 p-5">
-                <div className="py-4">
-                  <span style={{ fontSize: 16, fontWeight: 700 }}>
-                    <span>
-                      <i class="bi bi-arrow-left-short"></i>
-                    </span>{" "}
-                    Continue Shopping
-                  </span>{" "}
-                  <br />
-                  <span style={{ fontSize: 40, fontWeight: 700 }}>
-                    Your Shopping Cart
-                  </span>
+            <article>
+              <div class="row">
+                <div class="col-md-12 p-5">
+                  <div className="py-4">
+                    <Link to="/products">
+                      <span style={{ fontSize: 16, fontWeight: 700 }}>
+                        <span>
+                          <i class="bi bi-arrow-left-short"></i>
+                        </span>
+                        Continue Shopping
+                      </span>
+                    </Link>
+
+                    <br />
+                    <span style={{ fontSize: 40, fontWeight: 700 }}>
+                      Your Shopping Cart
+                    </span>
+                  </div>
+                  {cart.map((item) => (
+                    <div className="cart_box" key={item.id}>
+                      <div className="py-2">
+                        <div
+                          class="row m-0 bg-light"
+                          style={{ height: 102, borderRadius: 13 }}
+                        >
+                          <span
+                            style={{
+                              backgroundColor: "#79B420",
+                              position: "absolute",
+                              borderRadius: "9px 0 13px 0",
+                              color: "black",
+                              justifyContent: "center",
+                              maxWidth: 56,
+                              height: 26,
+                              display: "flex",
+                              fontSize: 16,
+                              fontWeight: 700,
+                              boxShadow: "0px 3px 6px #8888881f",
+                            }}
+                          >
+                            -25%
+                          </span>
+                          <div class="col-md-6 d-flex align-items-center p-0">
+                            <img
+                              src=""
+                              alt=""
+                              style={{
+                                height: 102,
+                                width: 120,
+                                borderRadius: 10,
+                              }}
+                            />
+                            <span className="px-4">
+                              <span style={{ fontSize: 14, color: "grey" }}>
+                                {item.value}
+                              </span>{" "}
+                              <br />
+                              <span
+                                style={{
+                                  fontSize: 20,
+                                  fontWeight: 600,
+                                  color: "black",
+                                }}
+                              >
+                                {item.value}
+                              </span>{" "}
+                              <br />
+                              <span
+                                style={{
+                                  fontSize: 14,
+                                  fontWeight: 600,
+                                  color: "#79B420",
+                                }}
+                              >
+                                R {item.price}{" "}
+                                <span style={{ fontSize: 14, color: "grey" }}>
+                                  <s>R 250</s>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                          <div class="col-md-6 d-flex align-items-center p-0" style={{justifyContent: "space-around" }}>
+                            <div>
+                              <button
+                                onClick={() =>
+                                  handleChange(item.productCode, -1)
+                                }
+                                style={{
+                                  borderRadius: "25px",
+                                  backgroundColor: "lightgray",
+                                  border: "none",
+                                  width: "30px",
+                                  height: "30px",
+                                  color: "white",
+                                }}
+                              >
+                                -
+                              </button>
+                              <button
+                                style={{
+                                  margin: "5px",
+                                  borderRadius: "4px",
+                                  border: "solid 1px #c5c3c3",
+                                  width: "35px",
+                                  height: "35px",
+                                }}
+                              >
+                                {item.amount}
+                              </button>
+                              <button
+                                onClick={() =>
+                                  handleChange(item.productCode, 1)
+                                }
+                                style={{
+                                  borderRadius: "25px",
+                                  backgroundColor: "black",
+                                  border: "none",
+                                  width: "30px",
+                                  height: "30px",
+                                  color: "white",
+                                }}
+                              >
+                                +
+                              </button>
+                            </div>
+                            <div>
+                              <span
+                                style={{
+                                  margin: "7px",
+                                  fontWeight: 700,
+                                  fontSize: 16,
+                                }}
+                              >
+                                {item.price}
+                              </span>
+                            </div>
+                            <div>
+                              <button
+                                onClick={() => handleRemove(item.productCode)}
+                                style={{
+                                  border: "none",
+                                  background: "none",
+                                  fontSize: "13px",
+                                  fontWeight: 700,
+                                  color: "#0097F7",
+                                }}
+                              >
+                                Remove
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <CartCard />
-                <CartCard />
               </div>
-            </div>
-            <div
-              class="row position-fixed fixed-bottom"
-              style={{ display: "contents" }}
-            >
-              <div class="col-md-12 p-5">
-                <Ymal />
+              <div
+                class="row position-fixed fixed-bottom"
+                style={{ display: "contents" }}
+              >
+                <div class="col-md-12 p-5">
+                  <Ymal />
+                </div>
               </div>
-            </div>
+            </article>
           </div>
-          <div class="col-md-3 p-0" style={{ backgroundColor: "white", height: "100vh"}}>
+
+          <div
+            class="col-md-3 p-0"
+            style={{ backgroundColor: "white", height: "100vh" }}
+          >
             <>
               <div class="row m-2">
                 <div className="">
-                  <span style={{ float: "right", marginTop: 25 }}>
-                    <svg
-                      width="38"
-                      height="40"
-                      viewBox="0 0 38 40"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M18.9728 40C29.4512 40 37.9456 31.0457 37.9456 20C37.9456 8.95431 29.4512 0 18.9728 0C8.49442 0 0 8.95431 0 20C0 31.0457 8.49442 40 18.9728 40Z"
-                        fill="#EDEEF0"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M24.9962 27.4651L11.5303 13.9651L12.9585 12.5332L26.4244 26.0332L24.9962 27.4651Z"
-                        fill="black"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M26.4244 13.9668L12.9585 27.4668L11.5303 26.0349L24.9962 12.5349L26.4244 13.9668Z"
-                        fill="black"
-                      />
-                    </svg>
-                  </span>
+                  <Link to="/">
+                    <span style={{ float: "right", marginTop: 25 }}>
+                      <svg
+                        width="38"
+                        height="40"
+                        viewBox="0 0 38 40"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M18.9728 40C29.4512 40 37.9456 31.0457 37.9456 20C37.9456 8.95431 29.4512 0 18.9728 0C8.49442 0 0 8.95431 0 20C0 31.0457 8.49442 40 18.9728 40Z"
+                          fill="#EDEEF0"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M24.9962 27.4651L11.5303 13.9651L12.9585 12.5332L26.4244 26.0332L24.9962 27.4651Z"
+                          fill="black"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M26.4244 13.9668L12.9585 27.4668L11.5303 26.0349L24.9962 12.5349L26.4244 13.9668Z"
+                          fill="black"
+                        />
+                      </svg>
+                    </span>
+                  </Link>
                 </div>
                 <div class="col-md-12 pt-4">
                   <span style={{ fontSize: 20, fontWeight: 700 }}>Summary</span>
@@ -75,7 +237,7 @@ const Cart = ({ cartItems }) => {
                   <div className="mt-2">
                     <span style={{ fontSize: 16 }}>Subtotal</span>
                     <span style={{ float: "right", fontSize: 16 }}>
-                      R 392.50
+                      R {price}
                     </span>
                   </div>
                   <div className="mt-3">
@@ -89,7 +251,7 @@ const Cart = ({ cartItems }) => {
                     <span
                       style={{ float: "right", fontWeight: 600, fontSize: 16 }}
                     >
-                      R 400.50
+                      R {price}
                     </span>
                   </div>
                   <div className="mt-3">
@@ -110,7 +272,7 @@ const Cart = ({ cartItems }) => {
                         fontSize: 16,
                       }}
                     >
-                      R -40.50
+                      R 0.00
                     </span>
                   </div>
                 </div>
@@ -263,7 +425,7 @@ const Cart = ({ cartItems }) => {
                   borderRadius: "20px 20px 0px 0px",
                   position: "fixed",
                   bottom: 0,
-                  width: "25%"
+                  width: "25%",
                 }}
               >
                 <div className="p-4">
@@ -275,7 +437,7 @@ const Cart = ({ cartItems }) => {
                     <span
                       style={{ float: "right", fontSize: 20, fontWeight: 700 }}
                     >
-                      R 360.00
+                      {price}
                     </span>{" "}
                   </div>
                   <button
@@ -319,7 +481,6 @@ const Cart = ({ cartItems }) => {
           </div>
         </div>
       </div>
-      );
     </>
   );
 };

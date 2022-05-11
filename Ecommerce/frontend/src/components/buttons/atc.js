@@ -1,6 +1,6 @@
 import React from "react";
 
-function atc() {
+function atc({handleClick, item}) {
   return (
     <div
       style={{
@@ -48,6 +48,7 @@ function atc() {
           padding: "auto",
           backgroundColor: "#97E128",
         }}
+        onClick={() => handleClick(item)}
       >
         <span style={{ fontSize: 18, color: "black", fontWeight: 600 }}>
           Add to Cart{" "}

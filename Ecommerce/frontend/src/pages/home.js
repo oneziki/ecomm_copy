@@ -11,24 +11,22 @@ import SearchBar from "../components/searchbar/SearchBar";
 import "../components/products-header/ProductsHeader.scss";
 import AllProducts from "../components/all-products/AllProducts";
 
+function Home(products) {
 
-// import BookData from "./Data.json";
-
-function Home() {
   return (
     <div>
       <Page loader={"spin"} color={"#b2fa00"} size={4} duration={1}>
-      <Navigationbar size="2" />
-      <div className="maincont">
-        <Landing />
-      </div>
-      <div className="sticky-top mobilesearch" style={{ paddingTop: 75 }}>
-        <SearchBar />
-      </div>
-      <AllProducts />
-      <Whatshot />
-      <Shopbybrand />
-      <Footer />
+        <Navigationbar size="2" />
+        <div className="maincont">
+          <Landing />
+        </div>
+        <div className="sticky-top mobilesearch" style={{ paddingTop: 75 }}>
+          <SearchBar />
+        </div>
+        <AllProducts products={products}/>
+        <Whatshot />
+        {/* <Shopbybrand /> */}
+        {/* <Footer /> */}
       </Page>
     </div>
   );

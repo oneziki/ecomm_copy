@@ -38,7 +38,7 @@ export default function ProductsHeader() {
               </h1>
             </Col>
           </Row>
-          <Row className="searchbar">
+          <Row className="searchbar" style={{paddingTop: "20px"}}>
             <Col>
               <SearchBar placeholder="Search Products" data={BookData} />
             </Col>

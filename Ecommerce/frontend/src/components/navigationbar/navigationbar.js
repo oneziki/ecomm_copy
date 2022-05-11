@@ -39,15 +39,13 @@ function Navigationbar(props) {
           </Col>
           
           <Col xs={12} md={7} className="d-flex aa" style={{borderTop: 'solid 0.5px #55585E'}}>
-            <a href="/discover" className="sparkle u-hover--sparkle">
+            <a href="/products" className="sparkle u-hover--sparkle">
               <span style={{color: props.navcolor}}>Discover</span>
             </a>
             <a href="/latest-deals" className="sparkle u-hover--sparkle">
             <span style={{color: props.navcolor}}>Latest Deals</span>
             </a>
-            <a href="/cart" id="price" className="sparkle u-hover--sparkle">
-            <span style={{color: props.navcolor}}><b>Cart R500</b></span>
-            </a>
+            <Link to="/cart" id="price" className="sparkle u-hover--sparkle"><span style={{color: props.navcolor}}><b>Cart</b></span></Link>
             <a href="/" id="searchglass" className="sparkle u-hover--sparkle">
               <i class="bi bi-search"></i>
             </a>

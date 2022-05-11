@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import "../components/latestdeals/latestdeals.scss"
+import "../components/latestdeals/latestdeals.scss";
+import ItemDetail from "../pages/itemDetail";
 
 function StyledCard(props) {
   // const imgStyle = {
@@ -12,15 +13,15 @@ function StyledCard(props) {
       <p>{props.img}</p>
       {/* <img className="img" variant="top" src={props.image} style={imgStyle} /> */}
       <Card.Body className="cbody">
-        <h6>{props.name}</h6>
-        <h4>{props.title}</h4>
+        {/* <h6>{item.vendor}</h6>
+        <h4>title</h4>
         <h5>FROM</h5>
         <h2>
-          {props.price}{" "}
+          {item.value}{" "}
           <span>
-            <s>{props.priceoff}</s>
+            <s>price off</s>
           </span>
-        </h2>
+        </h2> */}
       </Card.Body>
     </Card>
   );
