@@ -13,11 +13,11 @@ import ProductsHeader from "../components/products-header/ProductsHeader";
 import Shopbybrand from "../components/shopbybrand/shopbybrand";
 import Footer from "../components/footer/footer";
 
-const Products = ({products}) => {
+const Products = ({ products, countCartItem }) => {
 
   return (
     <>
-      <div style={{ background: "white" }}>
+      <div style={{ background: "white", display: "flow-root" }}>
         <div
           className="productDetails"
           style={{
@@ -28,7 +28,7 @@ const Products = ({products}) => {
             marginBottom: 30,
           }}
         >
-          <Navigationbar />
+          <Navigationbar countCartItem={countCartItem} />
           <ProductsHeader />
         </div>
         <div className="container" style={{ paddingTop: "", display: "" }}>
@@ -51,8 +51,14 @@ const Products = ({products}) => {
                 >
                   <Link
                     to={generatePath(
-                      "/itemDetail/:productCode/:value/:vendor",
-                      item
+                      "/itemDetail/:ProductCode/:FaceValue/:Vendor/",
+                      {
+                        ProductCode: item.ProductCode,
+                        FaceValue: item.FaceValue,
+                        // Vendor: item.Vendor.replaceAll(/\W/g, "")
+                        Vendor: item.Vendor,
+                        Vat: item.Vat,
+                      }
                     )}
                   >
                     <div
@@ -60,18 +66,19 @@ const Products = ({products}) => {
                       style={{ margin: 0, borderRadius: 25 }}
                     >
                       <img
-                        src="..."
+                        src={item.Logo}
                         className="card-img-top"
                         alt="..."
-                        style={{ width: "390px !important" }}
+                        style={{ width: "390px !important", borderRadius: 25 }}
                       />
                       <div style={{ marginTop: "10px", margin: 20 }}>
-                        <span>title here..</span>
+                        <span>{item.Vendor}</span>
                         <h6 style={{ fontSize: 19, fontWeight: 600 }}>
-                          {item.vendor}
+                          {item.Description}
                         </h6>
                         <h2 style={{ fontSize: 26, fontWeight: 700 }}>
-                          {item.value}{" "}
+                          R {item.FaceValue}{" "}
+                          <span style={{ display: "none" }}>{item.Vat} </span>
                         </h2>
                       </div>
                     </div>
@@ -82,7 +89,7 @@ const Products = ({products}) => {
           </div>
         </div>
       </div>
-      <div>
+      <div style={{ display: "flex !important" }}>
         <Shopbybrand />
         <Footer />
       </div>

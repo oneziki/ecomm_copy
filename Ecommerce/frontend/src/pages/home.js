@@ -10,20 +10,20 @@ import Landing from "../components/landing/landing";
 import SearchBar from "../components/searchbar/SearchBar";
 import "../components/products-header/ProductsHeader.scss";
 import AllProducts from "../components/all-products/AllProducts";
+import Cart from "./cart";
 
-function Home(products) {
-
+function Home({ products, countCartItem }) {
   return (
     <div>
       <Page loader={"spin"} color={"#b2fa00"} size={4} duration={1}>
-        <Navigationbar size="2" />
+        <Navigationbar countCartItem={countCartItem} />
         <div className="maincont">
           <Landing />
         </div>
         <div className="sticky-top mobilesearch" style={{ paddingTop: 75 }}>
           <SearchBar />
         </div>
-        <AllProducts products={products}/>
+        {/* <AllProducts products={products}/> */}
         <Whatshot />
         {/* <Shopbybrand /> */}
         {/* <Footer /> */}

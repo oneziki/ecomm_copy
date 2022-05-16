@@ -4,7 +4,8 @@
   "info": {
     "singularName": "row",
     "pluralName": "rows",
-    "displayName": "row"
+    "displayName": "row",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -52,6 +53,9 @@
     },
     "Logo": {
       "type": "string"
+    },
+    "Vat": {
+      "type": "biginteger"
     }
   }
 }

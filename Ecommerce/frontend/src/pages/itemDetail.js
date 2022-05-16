@@ -10,36 +10,30 @@ import Gift from "../assets/images/Gift.png";
 import "../pages/ProductDetails.scss";
 import "bootstrap";
 
-function ItemDetail({ handleClick, products }) {
-  const { productCode, vendor, value } = useParams();
-  // const item = { productCode, vendor, value };
-  const item = products.find((item) => item.productCode === productCode);
-  // const { id } = useParams();
+function ItemDetail({ handleClick, products, countCartItem }) {
+  const { ProductCode, Vendor, FaceValue } = useParams();
+  const item = products.find(
+    (item) => String(item.ProductCode) === ProductCode
+  );
 
-  // const productCode = props.match
-  // useEffect(async () => {
-  //   const fetchItem = await fetch(
-  //     `api/products/products_by_id?id=${productCode}&type=single`
-  //   );
-  //   const item = await fetchItem.json();
-  //   setItem(item.data);
-  //   console.log(item.data["item"]);
-  //   setIsLoading(false);
-  // }, []);
 
-  // const [item, setItem] = useState({});
-  // const [loading, setIsLoading] = useState(true);
+// useEffect(() => {
+//   const cartData = window.localStorage.getItem("wakanda-forever");
+//   updateItemDetail(JSON.parse(countCartItem));
+// }, []);
 
-  // const productCode = props.match.params.productCode
-  // useEffect(() => {
-  //   Axios.get(`api/products/products_by_id?id=${productCode}&type=single`)
-  // }, []);
+// useEffect(() => {
+//   window.localStorage.setItem("wakanda-forever", JSON.stringify(countCartItem));
+// });
 
   return (
     <>
-      <Navigationbar bgcolor="white" navcolor="black" />
+      <Navigationbar
+        bgcolor="white"
+        navcolor="black"
+        countCartItem={countCartItem}
+      />
       <Container className="mainContainer">
-        Product Details
         <div className="containter productsDetails mb-4">
           <div class="row">
             <div className="col-md-12 pt-5 pb-5">
@@ -67,7 +61,12 @@ function ItemDetail({ handleClick, products }) {
             </div>
             <div className="col-md-6">
               <>
-                <img src="" alt="" className="img" />
+                <img
+                  src={item.Logo}
+                  alt=""
+                  className="img"
+                  style={{ width: "100%" }}
+                />
                 <div className="productinfo">
                   <div className="py-2 mt-4">
                     <span className="h3Title">Details</span>
@@ -144,17 +143,17 @@ function ItemDetail({ handleClick, products }) {
                   </span>
                 </div>
                 <div className="px-4 mb-3 mde">
-                  <h2 className="h2Title">{item.vendor}</h2>
+                  <h2 className="h2Title">{item.Vendor}</h2>
                 </div>
                 <div className="px-4 mb-2">
                   <span className="s3">
                     <b>from</b>
                   </span>
                   <h1 className="h1Title">
-                    <b>R {item.value}</b>
+                    <b>R {item.FaceValue.toFixed(2)}</b>
                   </h1>
 
-                  <span className="s4">Product Codes: {item.productCode}</span>
+                  <span className="s4">Product Codes: {item.ProductCode}</span>
                 </div>
                 <div className="details2">
                   <div className="p-4">
@@ -349,5 +348,22 @@ function ItemDetail({ handleClick, products }) {
     </>
   );
 }
+
+// function ItemDetail({ handleClick, products }) {
+//   const { ProductCode, Vendor, FaceValue } = useParams();
+//   // const item = { productCode, vendor, value };
+//   const item = products.find(
+//     (item) => String(item.ProductCode) === ProductCode
+//   );
+
+//   return (
+//     <div>
+//       <p>product id: {item.ProductCode}</p>
+//       <p>Description: {item.FaceValue}</p>
+//       <p>vendor: {item.Vendor}</p>
+//       <button onClick={() => handleClick(item)}>Add to Cart</button>
+//     </div>
+//   );
+// }
 
 export default ItemDetail;

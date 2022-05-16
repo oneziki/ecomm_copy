@@ -1,40 +1,32 @@
-import "./index.scss";
 import { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-  Link,
-  generatePath,
-} from "react-router-dom";
-import { v4 as uuidV4 } from "uuid";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Products from "./pages/products";
 import ItemDetail from "./pages/itemDetail";
 import Cart from "./pages/cart";
-import Products from "./pages/products";
 import Home from "./pages/home";
-import AllProducts from "./components/all-products/AllProducts";
-
-const data = Array.from({ length: 59 }, () => ({
-  productCode: uuidV4(),
-  value: `product ${Math.floor(Math.random() * 1000)}`,
-  vendor: (Math.floor(Math.random() * 3) + 100).toString(),
-  price: Math.floor(Math.random() * 10000) / 100,
-}));
+import Navigationbar from "./components/navigationbar/navigationbar";
 
 export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    setProducts(data);
+    fetch("http://localhost:1337/api/rows/")
+      .then((response) => response.json())
+      .then(({ data }) => {
+        const allData = data.map(({ id, attributes }) => ({
+          id,
+          ...attributes,
+        }));
+        setProducts(allData);
+      });
   }, []);
 
   const handleClick = (item) => {
-    if (cart.some((cartItem) => cartItem.productCode === item.productCode)) {
+    if (cart.some((cartItem) => cartItem.ProductCode === item.ProductCode)) {
       setCart((cart) =>
         cart.map((cartItem) =>
-          cartItem.productCode === item.productCode
+          cartItem.ProductCode === item.ProductCode
             ? {
                 ...cartItem,
                 amount: cartItem.amount + 1,
@@ -51,10 +43,10 @@ export default function App() {
     ]);
   };
 
-  const handleChange = (productCode, d) => {
+  const handleChange = (ProductCode, d) => {
     setCart((cart) =>
       cart.flatMap((cartItem) =>
-        cartItem.productCode === productCode
+        cartItem.ProductCode === ProductCode
           ? cartItem.amount + d < 1
             ? [] // <-- remove item if amount will be less than 1
             : [
@@ -71,19 +63,8 @@ export default function App() {
   return (
     <div className="App">
       <Router>
-        {/* <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/cart">Cart</Link>
-          </li>
-        </ul> */}
         <Routes>
-          <Route path="/" element={<Home products={products} />} />
+          <Route path="/" element={<Home countCartItem={cart.length} />} />
           {/* <Route path="all-categories" element={<AllCategories />} />
           <Route path="entertainment" element={<Entertainment />} />
           <Route path="login" element={<Login />} />
@@ -91,18 +72,32 @@ export default function App() {
           <Route path="netflix" element={<Netflix />} />
           <Route path="orders" element={<Orders />} />
           <Route path="sign-up" element={<SignUp />} /> */}
-          <Route path="products" element={<Products products={products} />} />
-          <Route path="allProducts" element={<AllProducts products={products} />} />
           <Route
-            path="/itemDetail/:productCode/:value/:vendor"
+            path="products"
             element={
-              <ItemDetail products={products} handleClick={handleClick} />
+              <Products products={products} countCartItem={cart.length} />
+            }
+          />
+          <Route path="/Navigationbar" element={<Navigationbar />} />
+          <Route
+            path="/itemDetail/:ProductCode/:FaceValue/:Vendor"
+            element={
+              <ItemDetail
+                products={products}
+                handleClick={handleClick}
+                countCartItem={cart.length}
+              />
             }
           />
           <Route
             path="/Cart/"
             element={
-              <Cart cart={cart} setCart={setCart} handleChange={handleChange} />
+              <Cart
+                cart={cart}
+                setCart={setCart}
+                handleChange={handleChange}
+                countCartItem={cart.length}
+              />
             }
           />
         </Routes>

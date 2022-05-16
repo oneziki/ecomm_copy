@@ -7,7 +7,7 @@ import logo from "./logo.png";
 import logoWhite from "./logoWhite.png";
 import menu from "./hamburger.png";
 
-function Navigationbar(props) {
+function Navigationbar({ products, countCartItem }) {
   const [color, setColor] = useState(false);
   const changeColor = () => {
     if (window.scrollY >= 10) {
@@ -17,35 +17,46 @@ function Navigationbar(props) {
     }
   };
 
-
   window.addEventListener("scroll", changeColor);
 
   return (
-    <div className={color ? "header header-bg" : "header"} style={{borderBottom: 'solid 0.5px #55585E', backgroundColor: props.bgcolor }}>
+    <div
+      className={color ? "header header-bg" : "header"}
+      style={{ borderBottom: "solid 0.5px #55585E" }}
+    >
       <Container id="navcontainer">
         <Row>
           <Col xs={3} md={3} className="d-flex logo">
             <div>
-              <a href="/">              
-              <img  className="menuicon" src={menu} alt="" href="/"/>
-              </a>            
+              <a href="/">
+                <img className="menuicon" src={menu} alt="" href="/" />
+              </a>
             </div>
             <div id="flashlogo">
-              <a href="/">              
-              <img className="image1" src={logo} alt="" href="/"/>
-              <img className="image2" src={logoWhite} alt="" href="/"/>
-              </a>            
+              <a href="/">
+                <img className="image1" src={logo} alt="" href="/" />
+                <img className="image2" src={logoWhite} alt="" href="/" />
+              </a>
             </div>
           </Col>
-          
-          <Col xs={12} md={7} className="d-flex aa" style={{borderTop: 'solid 0.5px #55585E'}}>
+
+          <Col
+            xs={12}
+            md={7}
+            className="d-flex aa"
+            style={{ borderTop: "solid 0.5px #55585E" }}
+          >
             <a href="/products" className="sparkle u-hover--sparkle">
-              <span style={{color: props.navcolor}}>Discover</span>
+              <span style={{ color: "" }}>Discover</span>
             </a>
             <a href="/latest-deals" className="sparkle u-hover--sparkle">
-            <span style={{color: props.navcolor}}>Latest Deals</span>
+              <span style={{ color: "" }}>Latest Deals</span>
             </a>
-            <Link to="/cart" id="price" className="sparkle u-hover--sparkle"><span style={{color: props.navcolor}}><b>Cart</b></span></Link>
+            <Link to="/cart" id="price" className="sparkle u-hover--sparkle">
+              <span style={{ color: "" }}>
+                <b>Cart</b>
+              </span>
+            </Link>
             <a href="/" id="searchglass" className="sparkle u-hover--sparkle">
               <i class="bi bi-search"></i>
             </a>
@@ -64,30 +75,60 @@ function Navigationbar(props) {
                     fill="black"
                   />
                 </svg>
+                {""}{" "}
+                {countCartItem ? (
+                  <button
+                    className="badge"
+                    style={{
+                      position: "absolute",
+                      textAlign: "center",
+                      fontSize: "9px",
+                      fontWeight: 700,
+                      border: "solid black 1px",
+                      borderRadius: "25px",
+                      marginLeft: "-10px",
+                      marginTop: "-5px",
+                      backgroundColor: "#97e128",
+                      color: "black",
+                    }}
+                  >
+                    {countCartItem}
+                  </button>
+                ) : (
+                  ""
+                )}
               </span>
             </a>
-            <span id="lineseperate" style={{borderLeft: 'solid 1px grey', height: 30, marginLeft: 20}}>
-            </span>
+            <span
+              id="lineseperate"
+              style={{
+                borderLeft: "solid 1px grey",
+                height: 30,
+                marginLeft: 20,
+              }}
+            ></span>
           </Col>
-          
+
           <Col xs={8} md={2} className="d-flex bb m-0 p-0">
+            <Link
+              className="btn btn-outline-light btn-lg"
+              role="button"
+              to="/login"
+              style={{ background: "transparent", border: "none" }}
+            >
+              <a href="/" className="sparkle " style={{ padding: 0 }}>
+                Log in
+              </a>
+            </Link>
 
             <Link
               className="btn btn-outline-light btn-lg"
               role="button"
               to="/login"
-           style={{background: 'transparent', border: 'none'}} >
-              <a href="/" className="sparkle "style={{padding: 0,}} >Log in</a>
-            </Link>
-
-            <Link
-              className="btn btn-outline-light btn-lg"
-              role="button"
-              to="/login" style={{background: '#97E128', border: 'none'}}
+              style={{ background: "#97E128", border: "none" }}
             >
               Sign Up
             </Link>
-
           </Col>
         </Row>
       </Container>

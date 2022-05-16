@@ -1,3 +1,4 @@
+import { ListItemAvatar } from "@material-ui/core";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -9,15 +10,23 @@ import {
 } from "react-router-dom";
 import Ymal from "../components/you-might-also-like/ymal";
 
-const Cart = ({ cart, setCart, handleChange }) => {
-  const handleRemove = (productCode) => {
-    setCart((cart) => cart.filter((item) => item.productCode !== productCode));
+const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
+  const handleRemove = (ProductCode) => {
+    setCart((cart) => cart.filter((item) => item.ProductCode !== ProductCode));
   };
 
   const price = cart.reduce(
-    (total, item) => total + item.amount * item.price,
+    (total, item) => total + item.amount * item.FaceValue,
     0
   );
+
+  const orderTotal = cart.reduce((total, item) => +price + +item.Vat, 0);
+
+  const vat = cart.reduce((total, item) => item.Vat, 12);
+
+
+  console.log(orderTotal);
+  console.log(cart);
 
   return (
     <>
@@ -42,6 +51,8 @@ const Cart = ({ cart, setCart, handleChange }) => {
                       Your Shopping Cart
                     </span>
                   </div>
+
+                  <div>{cart.length === 0 && <div>Cart is empty</div>}</div>
                   {cart.map((item) => (
                     <div className="cart_box" key={item.id}>
                       <div className="py-2">
@@ -68,7 +79,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                           </span>
                           <div class="col-md-6 d-flex align-items-center p-0">
                             <img
-                              src=""
+                              src={item.Logo}
                               alt=""
                               style={{
                                 height: 102,
@@ -78,7 +89,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                             />
                             <span className="px-4">
                               <span style={{ fontSize: 14, color: "grey" }}>
-                                {item.value}
+                                {item.Vendor}
                               </span>{" "}
                               <br />
                               <span
@@ -88,7 +99,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                                   color: "black",
                                 }}
                               >
-                                {item.value}
+                                {item.Description}
                               </span>{" "}
                               <br />
                               <span
@@ -98,18 +109,21 @@ const Cart = ({ cart, setCart, handleChange }) => {
                                   color: "#79B420",
                                 }}
                               >
-                                R {item.price}{" "}
+                                R {item.FaceValue}{" "}
                                 <span style={{ fontSize: 14, color: "grey" }}>
                                   <s>R 250</s>
                                 </span>
                               </span>
                             </span>
                           </div>
-                          <div class="col-md-6 d-flex align-items-center p-0" style={{justifyContent: "space-around" }}>
+                          <div
+                            class="col-md-6 d-flex align-items-center p-0"
+                            style={{ justifyContent: "space-around" }}
+                          >
                             <div>
                               <button
                                 onClick={() =>
-                                  handleChange(item.productCode, -1)
+                                  handleChange(item.ProductCode, -1)
                                 }
                                 style={{
                                   borderRadius: "25px",
@@ -135,7 +149,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                               </button>
                               <button
                                 onClick={() =>
-                                  handleChange(item.productCode, 1)
+                                  handleChange(item.ProductCode, 1)
                                 }
                                 style={{
                                   borderRadius: "25px",
@@ -162,7 +176,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                             </div>
                             <div>
                               <button
-                                onClick={() => handleRemove(item.productCode)}
+                                onClick={() => handleRemove(item.ProductCode)}
                                 style={{
                                   border: "none",
                                   background: "none",
@@ -237,13 +251,13 @@ const Cart = ({ cart, setCart, handleChange }) => {
                   <div className="mt-2">
                     <span style={{ fontSize: 16 }}>Subtotal</span>
                     <span style={{ float: "right", fontSize: 16 }}>
-                      R {price}
+                      R {price.toFixed(2)}
                     </span>
                   </div>
                   <div className="mt-3">
                     <span style={{ fontSize: 16 }}>VAT</span>
                     <span style={{ float: "right", fontSize: 16 }}>
-                      R 12.00
+                      R {vat}.00
                     </span>
                   </div>
                   <div className="mt-3">
@@ -251,7 +265,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                     <span
                       style={{ float: "right", fontWeight: 600, fontSize: 16 }}
                     >
-                      R {price}
+                      R {orderTotal.toFixed(2)}
                     </span>
                   </div>
                   <div className="mt-3">
@@ -437,7 +451,7 @@ const Cart = ({ cart, setCart, handleChange }) => {
                     <span
                       style={{ float: "right", fontSize: 20, fontWeight: 700 }}
                     >
-                      {price}
+                      R {orderTotal.toFixed(2)}
                     </span>{" "}
                   </div>
                   <button
