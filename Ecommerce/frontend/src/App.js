@@ -5,10 +5,17 @@ import ItemDetail from "./pages/itemDetail";
 import Cart from "./pages/cart";
 import Home from "./pages/home";
 import Navigationbar from "./components/navigationbar/navigationbar";
+import Checkout from "./pages/checkout";
+
+const cartFromLocalStorage = JSON.stringify(localStorage.getItem('cart') || '[]');
 
 export default function App() {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   useEffect(() => {
     fetch("http://localhost:1337/api/rows/")
@@ -64,7 +71,7 @@ export default function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Home countCartItem={cart.length} />} />
+          <Route path="/" element={<Home products={products} countCartItem={cart.length} />} />
           {/* <Route path="all-categories" element={<AllCategories />} />
           <Route path="entertainment" element={<Entertainment />} />
           <Route path="login" element={<Login />} />
@@ -79,6 +86,10 @@ export default function App() {
             }
           />
           <Route path="/Navigationbar" element={<Navigationbar />} />
+          <Route path="/Checkout/" element={<Checkout cart={cart}
+                setCart={setCart}
+                handleChange={handleChange}
+                countCartItem={cart.length}/>} />
           <Route
             path="/itemDetail/:ProductCode/:FaceValue/:Vendor"
             element={

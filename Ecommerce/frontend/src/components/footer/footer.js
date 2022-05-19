@@ -6,7 +6,7 @@ import image1 from "./logo.png";
 function footer() {
 
   return (
-    <Container fluid className="mt-auto footer">
+    <Container fluid className="mt-auto footer" >
       <Container className="m-auto f-row">
         <Row>
           <Col>

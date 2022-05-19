@@ -4,39 +4,30 @@ import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import Navigationbar from "../components/navigationbar/navigationbar";
 import Footer from "../components/footer/footer";
-import Ymal from "../components/you-might-also-like/ymal";
-import Atc from "../components/buttons/atc";
-import Gift from "../assets/images/Gift.png";
 import "../pages/ProductDetails.scss";
 import "bootstrap";
 
 function ItemDetail({ handleClick, products, countCartItem }) {
-  const { ProductCode, Vendor, FaceValue } = useParams();
+
+
+  const { ProductCode } = useParams();
   const item = products.find(
     (item) => String(item.ProductCode) === ProductCode
   );
 
 
-// useEffect(() => {
-//   const cartData = window.localStorage.getItem("wakanda-forever");
-//   updateItemDetail(JSON.parse(countCartItem));
-// }, []);
-
-// useEffect(() => {
-//   window.localStorage.setItem("wakanda-forever", JSON.stringify(countCartItem));
-// });
 
   return (
     <>
       <Navigationbar
-        bgcolor="white"
-        navcolor="black"
         countCartItem={countCartItem}
       />
+      <div style={{background: "black", height: "74px"}}>
+      </div>
       <Container className="mainContainer">
         <div className="containter productsDetails mb-4">
           <div class="row">
-            <div className="col-md-12 pt-5 pb-5">
+            <div className="col-md-12 pt-1 pb-5">
               <row>
                 <ul className="breadcrumb">
                   <li className="itemStyle">
@@ -65,7 +56,7 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                   src={item.Logo}
                   alt=""
                   className="img"
-                  style={{ width: "100%" }}
+                  style={{ width: "60%" }}
                 />
                 <div className="productinfo">
                   <div className="py-2 mt-4">
@@ -120,7 +111,7 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                 </div>
               </>
             </div>
-            <div className="col-md-6 p-3">
+            <div className="col-md-6">
               <div className="secondDiv pt-2">
                 <div className="p-4 mb-2">
                   <span className="s1">Digidev</span>
@@ -155,7 +146,7 @@ function ItemDetail({ handleClick, products, countCartItem }) {
 
                   <span className="s4">Product Codes: {item.ProductCode}</span>
                 </div>
-                <div className="details2">
+                <div className="details2" style={{display: "none"}}>
                   <div className="p-4">
                     <span className="s5">choose an option</span>
                     <br />

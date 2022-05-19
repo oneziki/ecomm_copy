@@ -24,6 +24,7 @@ const Discover = (props, params) => {
     paddingLeft: 0,
     minWidth: 240,
   };
+
   return (
     <>
       <div className="latestdeals container my-5">

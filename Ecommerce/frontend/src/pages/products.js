@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useParams,
-  Link,
-  generatePath,
-} from "react-router-dom";
-import { Row, Col, Container } from "react-bootstrap";
+import  { BrowserRouter, Link, generatePath } from "react-router-dom";
 import Navigationbar from "../components/navigationbar/navigationbar";
 import ProductsHeader from "../components/products-header/ProductsHeader";
 import Shopbybrand from "../components/shopbybrand/shopbybrand";
@@ -15,9 +7,11 @@ import Footer from "../components/footer/footer";
 
 const Products = ({ products, countCartItem }) => {
 
+  console.log(products);
+
   return (
     <>
-      <div style={{ background: "white", display: "flow-root" }}>
+      <div style={{ background: "transparent", display: "flow-root" }}>
         <div
           className="productDetails"
           style={{
@@ -31,7 +25,7 @@ const Products = ({ products, countCartItem }) => {
           <Navigationbar countCartItem={countCartItem} />
           <ProductsHeader />
         </div>
-        <div className="container" style={{ paddingTop: "", display: "" }}>
+        <div className="container">
           <div>
             <span style={{ fontSize: 12, fontWeight: 700 }}>Vouchers</span>
             <br />
@@ -42,12 +36,14 @@ const Products = ({ products, countCartItem }) => {
                 padding: 0,
                 maxWidth: 1800,
                 margin: "0 auto",
+                display: "flex",
+                justifyContent: "space-between"
               }}
             >
               {products.map((item) => (
                 <li
-                  key={item.productCode}
-                  style={{ padding: 0, width: 240, margin: 9, float: "left" }}
+                  key={item.ProductCode}
+                  style={{ padding: 0, maxWidth: 240, float: "left" }}
                 >
                   <Link
                     to={generatePath(
@@ -63,7 +59,7 @@ const Products = ({ products, countCartItem }) => {
                   >
                     <div
                       className="card"
-                      style={{ margin: 0, borderRadius: 25 }}
+                      style={{ margin: 0, borderRadius: 25, backgroundColor: "#edeef0ab" }}
                     >
                       <img
                         src={item.Logo}
@@ -89,7 +85,7 @@ const Products = ({ products, countCartItem }) => {
           </div>
         </div>
       </div>
-      <div style={{ display: "flex !important" }}>
+      <div style={{ display: "flex !important", background: "white", marginTop: 65 }}>
         <Shopbybrand />
         <Footer />
       </div>

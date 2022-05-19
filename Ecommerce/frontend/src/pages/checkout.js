@@ -1,5 +1,4 @@
-import { ListItemAvatar } from "@material-ui/core";
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,19 +9,29 @@ import {
 } from "react-router-dom";
 import Ymal from "../components/you-might-also-like/ymal";
 
-const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
-  const handleRemove = (ProductCode) => {
-    setCart((cart) => cart.filter((item) => item.ProductCode !== ProductCode));
-  };
 
-  const price = cart.reduce(
-    (total, item) => total + item.amount * item.FaceValue,
-    0
-  );
+function checkout({ cart, setCart, handleChange, countCartItem }) {
 
-  const orderTotal = cart.reduce((total, item) => +price + +item.Vat, 0);
 
-  const vat = cart.reduce((total, item) => item.Vat, 12);
+    const price = cart.reduce(
+      (total, item) => total + item.amount * item.FaceValue,
+      0
+    );
+
+    const orderTotal = cart.reduce((total, item) => +price + +item.Vat, 0);
+
+    const vat = cart.reduce((total, item) => item.Vat, 12);
+
+    function handleSubmit(e) {
+      e.preventDefault()
+      const {name, surname, cellphone, email } = e.target.elements;
+
+      const data = {name: name.value, surname: surname.value, cellphone: cellphone.value, email: email.value, orderTotal, cart }
+
+      console.log(data);
+  }
+
+console.log();
 
   return (
     <>
@@ -33,162 +42,45 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
               <div class="row">
                 <div class="col-md-12 p-5">
                   <div className="py-4">
-                    <Link to="/products">
+                    <Link to="/cart">
                       <span style={{ fontSize: 16, fontWeight: 700 }}>
                         <span>
                           <i class="bi bi-arrow-left-short"></i>
                         </span>
-                        Continue Shopping
+                        Back to Cart
                       </span>
                     </Link>
 
                     <br />
                     <span style={{ fontSize: 40, fontWeight: 700 }}>
-                      Your Shopping Cart
+                      Shipping Information
                     </span>
                   </div>
 
-                  <div>{cart.length === 0 && <div>Cart is empty</div>}</div>
-                  {cart.map((item) => (
-                    <div className="cart_box" key={item.id}>
-                      <div className="py-2">
-                        <div
-                          class="row m-0 bg-light"
-                          style={{ height: 102, borderRadius: 13 }}
-                        >
-                          <span
-                            style={{
-                              backgroundColor: "#79B420",
-                              position: "absolute",
-                              borderRadius: "9px 0 13px 0",
-                              color: "black",
-                              justifyContent: "center",
-                              maxWidth: 56,
-                              height: 26,
-                              display: "flex",
-                              fontSize: 16,
-                              fontWeight: 700,
-                              boxShadow: "0px 3px 6px #8888881f",
-                            }}
-                          >
-                            -25%
-                          </span>
-                          <div class="col-md-6 d-flex align-items-center p-0">
-                            <img
-                              src={item.Logo}
-                              alt=""
-                              style={{
-                                height: 102,
-                                width: 120,
-                                borderRadius: 10,
-                              }}
-                            />
-                            <span className="px-4">
-                              <span style={{ fontSize: 14, color: "grey" }}>
-                                {item.Vendor}
-                              </span>{" "}
-                              <br />
-                              <span
-                                style={{
-                                  fontSize: 20,
-                                  fontWeight: 600,
-                                  color: "black",
-                                }}
-                              >
-                                {item.Description}
-                              </span>{" "}
-                              <br />
-                              <span
-                                style={{
-                                  fontSize: 14,
-                                  fontWeight: 600,
-                                  color: "#79B420",
-                                }}
-                              >
-                                R {item.FaceValue}{" "}
-                                <span style={{ fontSize: 14, color: "grey" }}>
-                                  <s>R 250</s>
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                          <div
-                            class="col-md-6 d-flex align-items-center p-0"
-                            style={{ justifyContent: "space-around" }}
-                          >
-                            <div>
-                              <button
-                                onClick={() =>
-                                  handleChange(item.ProductCode, -1)
-                                }
-                                style={{
-                                  borderRadius: "25px",
-                                  backgroundColor: "lightgray",
-                                  border: "none",
-                                  width: "30px",
-                                  height: "30px",
-                                  color: "white",
-                                }}
-                              >
-                                -
-                              </button>
-                              <button
-                                style={{
-                                  margin: "5px",
-                                  borderRadius: "4px",
-                                  border: "solid 1px #c5c3c3",
-                                  width: "35px",
-                                  height: "35px",
-                                }}
-                              >
-                                {item.amount}
-                              </button>
-                              <button
-                                onClick={() =>
-                                  handleChange(item.ProductCode, 1)
-                                }
-                                style={{
-                                  borderRadius: "25px",
-                                  backgroundColor: "black",
-                                  border: "none",
-                                  width: "30px",
-                                  height: "30px",
-                                  color: "white",
-                                }}
-                              >
-                                +
-                              </button>
-                            </div>
-                            <div>
-                              <span
-                                style={{
-                                  margin: "7px",
-                                  fontWeight: 700,
-                                  fontSize: 16,
-                                }}
-                              >
-                                {item.price}
-                              </span>
-                            </div>
-                            <div>
-                              <button
-                                onClick={() => handleRemove(item.ProductCode)}
-                                style={{
-                                  border: "none",
-                                  background: "none",
-                                  fontSize: "13px",
-                                  fontWeight: 700,
-                                  color: "#0097F7",
-                                }}
-                              >
-                                Remove
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                  <div style={{margin: "100px 290px"}}>
+                    <h2 style={{fontSize: 20, fontWeight: 700, width: "285px", lineHeight: "23px", paddingBottom: 16}}>Please provide your details to continue to payment</h2>
+                    <form onSubmit={handleSubmit}>
+                    <label for="staticEmail" className="col col-form-label" >First Name</label>
+                    <input className="form-control form-control-lg" type="text" placeholder="Your name" id='name'/>
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Surname</label>
+                    <input className="form-control form-control-lg" type="text" placeholder="Surname" id='surname'/>
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Cellphone</label>
+                    <input className="form-control form-control-lg" type="text" placeholder="Cellphone" id='cellphone'/>
+                    <label for="staticEmail" className="col-sm-2 col-form-label">Email</label>
+                    <input className="form-control form-control-lg" type="text" placeholder="Email" id='email'/>
+                    <br />
+                    <input                       
+                        style={{
+                        width: "100%",
+                        height: 48,
+                        fontWeight: 700,
+                        borderRadius: 8,
+                        border: "solid #97E128 1px",
+                        padding: "auto",
+                        backgroundColor: "#97E128",
+                      }} type="submit" value="Confirm to payment"  />
+                    </form>
+                  </div>
                 </div>
               </div>
               <div
@@ -196,7 +88,7 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                 style={{ display: "contents" }}
               >
                 <div class="col-md-12 p-5">
-                  <Ymal />
+                  {/* <Ymal /> */}
                 </div>
               </div>
             </article>
@@ -249,9 +141,6 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     <span style={{ float: "right", fontSize: 16 }}>
                       R {price.toFixed(2)}
                     </span>
-                    <span>
-                      
-                    </span>
                   </div>
                   <div className="mt-3">
                     <span style={{ fontSize: 16 }}>VAT</span>
@@ -267,40 +156,6 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                       R {orderTotal.toFixed(2)}
                     </span>
                   </div>
-                  <div className="mt-3">
-                    <span
-                      style={{
-                        fontSize: 16,
-                        color: "#79b420",
-                        fontWeight: 600,
-                      }}
-                    >
-                      Discount
-                    </span>
-                    <span
-                      style={{
-                        float: "right",
-                        color: "#79b420",
-                        fontWeight: 600,
-                        fontSize: 16,
-                      }}
-                    >
-                      R 0.00
-                    </span>
-                  </div>
-                </div>
-                <div class="col-md-12 pt-5">
-                  <input
-                    style={{
-                      width: "100%",
-                      height: 49,
-                      background: "#eaf9d4",
-                      border: "none",
-                      borderRadius: 8,
-                      padding: 15,
-                    }}
-                    type="text"
-                  />
                 </div>
               </div>
               <div
@@ -455,8 +310,9 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                         R {orderTotal.toFixed(2)}
                       </span>{" "}
                     </div>
-                    <Link to="/checkout">
                     <button
+
+                    type='submit'
                       style={{
                         width: "100%",
                         height: 48,
@@ -466,8 +322,6 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                         padding: "auto",
                         backgroundColor: "#97E128",
                       }}
-
-                    
                     >
                       <span
                         style={{
@@ -497,7 +351,6 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                         </span>
                       </span>
                     </button>
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -510,4 +363,4 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
   );
 };
 
-export default Cart;
+export default checkout

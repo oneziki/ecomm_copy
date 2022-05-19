@@ -31,7 +31,7 @@ export default function ProductsHeader() {
       <div>
       <Container fluid className="landing">
         <Container className="mainLanding">
-          <Row>
+          <Row style={{paddingTop: 20}}>
             <Col>
               <h1 id="heading">
                 Get your <span>{placeholderText[state]}</span>
