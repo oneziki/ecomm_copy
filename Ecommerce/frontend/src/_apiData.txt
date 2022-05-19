@@ -1,0 +1,127 @@
+{
+  "data": [
+      {
+          "id": 1,
+          "attributes": {
+              "Description": "PlayStation Store R50 Voucher",
+              "Vendor": "Sony Play Station",
+              "VendorId": 20,
+              "FaceValue": 50,
+              "DefaultCost": 50,
+              "ProductCode": 317,
+              "Name": 50,
+              "ProductCodeAlt": "FLASH-317",
+              "ProductTypeEnum": "Wallet Top Up",
+              "ProductStatusEnum": "Active",
+              "CountryId": 179,
+              "Country": "South Africa",
+              "CountryAlpha2Code": "27",
+              "Logo": "https://prod.za.flashcontentmanager.flash-infra.cloud/image/i955.png",
+              "createdAt": "2022-05-03T12:08:43.718Z",
+              "updatedAt": "2022-05-18T12:08:09.305Z",
+              "publishedAt": "2022-05-03T12:08:47.100Z",
+              "Vat": "15"
+          }
+      },
+      {
+          "id": 4,
+          "attributes": {
+              "Description": "PUBG Mobile 30000 + 10500 UC Voucher",
+              "Vendor": "PUBG Mobile",
+              "VendorId": 21,
+              "FaceValue": 8899,
+              "DefaultCost": 8899,
+              "ProductCode": 340,
+              "Name": null,
+              "ProductCodeAlt": "FLASH-340",
+              "ProductTypeEnum": "WalletTopUp",
+              "ProductStatusEnum": "Active",
+              "CountryId": 179,
+              "Country": "South Africa",
+              "CountryAlpha2Code": "ZA",
+              "Logo": "https://prod.za.flashcontentmanager.flash-infra.cloud/image/i956.png",
+              "createdAt": "2022-05-13T06:18:36.885Z",
+              "updatedAt": "2022-05-13T06:26:26.478Z",
+              "publishedAt": "2022-05-13T06:26:26.475Z",
+              "Vat": "12"
+          }
+      },
+      {
+          "id": 5,
+          "attributes": {
+              "Description": "PUBG Mobile 24000 + 8400 UC Voucher",
+              "Vendor": "PUBG Mobile",
+              "VendorId": 21,
+              "FaceValue": 7079,
+              "DefaultCost": 7079,
+              "ProductCode": 339,
+              "Name": null,
+              "ProductCodeAlt": "FLASH-339",
+              "ProductTypeEnum": "WalletTopUp",
+              "ProductStatusEnum": "Active",
+              "CountryId": 179,
+              "Country": "South Africa",
+              "CountryAlpha2Code": "ZA",
+              "Logo": "https://prod.za.flashcontentmanager.flash-infra.cloud/image/i956.png",
+              "createdAt": "2022-05-13T06:21:02.907Z",
+              "updatedAt": "2022-05-16T08:08:04.622Z",
+              "publishedAt": "2022-05-13T06:26:23.068Z",
+              "Vat": "12"
+          }
+      },
+      {
+          "id": 6,
+          "attributes": {
+              "Description": "PUBG Mobile 18000 + 6300 UC Voucher",
+              "Vendor": "PUBG Mobile",
+              "VendorId": 21,
+              "FaceValue": 5309,
+              "DefaultCost": 5309,
+              "ProductCode": 338,
+              "Name": null,
+              "ProductCodeAlt": "FLASH-338",
+              "ProductTypeEnum": "WalletTopUp",
+              "ProductStatusEnum": "Active",
+              "CountryId": 179,
+              "Country": "South Africa",
+              "CountryAlpha2Code": "ZA",
+              "Logo": "https://prod.za.flashcontentmanager.flash-infra.cloud/image/i956.png",
+              "createdAt": "2022-05-13T06:23:14.946Z",
+              "updatedAt": "2022-05-13T06:26:20.054Z",
+              "publishedAt": "2022-05-13T06:26:20.052Z",
+              "Vat": "12"
+          }
+      },
+      {
+          "id": 7,
+          "attributes": {
+              "Description": "PUBG Mobile 12000 +4200 UC Voucher",
+              "Vendor": "PUBG Mobile",
+              "VendorId": 21,
+              "FaceValue": 3538,
+              "DefaultCost": 3539,
+              "ProductCode": 337,
+              "Name": null,
+              "ProductCodeAlt": "FLASH-337",
+              "ProductTypeEnum": "WalletTopUp",
+              "ProductStatusEnum": "Active",
+              "CountryId": 179,
+              "Country": "South Africa",
+              "CountryAlpha2Code": "ZA",
+              "Logo": "https://prod.za.flashcontentmanager.flash-infra.cloud/image/i956.png",
+              "createdAt": "2022-05-13T06:26:05.934Z",
+              "updatedAt": "2022-05-19T09:50:55.363Z",
+              "publishedAt": "2022-05-13T06:26:15.317Z",
+              "Vat": "12"
+          }
+      }
+  ],
+  "meta": {
+      "pagination": {
+          "page": 1,
+          "pageSize": 25,
+          "pageCount": 1,
+          "total": 5
+      }
+  }
+}
