@@ -31,14 +31,14 @@ export default function ProductsHeader() {
       <div>
       <Container fluid className="landing">
         <Container className="mainLanding">
-          <Row style={{paddingTop: 20}}>
+          <Row>
             <Col>
               <h1 id="heading">
                 Get your <span>{placeholderText[state]}</span>
               </h1>
             </Col>
           </Row>
-          <Row className="searchbar" style={{paddingTop: "20px"}}>
+          <Row className="searchbar">
             <Col>
               <SearchBar placeholder="Search Products" data={BookData} />
             </Col>

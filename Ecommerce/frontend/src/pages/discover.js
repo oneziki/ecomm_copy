@@ -3,17 +3,16 @@ import { Row, Col } from "react-bootstrap";
 import StyledCard from "../components/Card";
 
 const Discover = (props, params) => {
-  const token = "8737d39f-3336-3ffd-8e1a-f664b2bb759c";
+  const token = "3bb990f1-5fbe-39bf-a320-8ad11b4bc95c";
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://api.flash-internal.flash-group.com/ecommerceManagement/1.0.0/api/product/",
-      {
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    )
+    const requestOptions = {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+    };
+    fetch("https://api.flash-internal.flash-group.com/ecommerceManagement/1.0.0/api/checkout/", requestOptions)
       .then((res) => res.json())
       .then((json) => setResult(json));
   }, []);

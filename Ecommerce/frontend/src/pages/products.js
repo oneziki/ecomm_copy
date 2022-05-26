@@ -29,21 +29,23 @@ const Products = ({ products, countCartItem }) => {
           <div>
             <span style={{ fontSize: 12, fontWeight: 700 }}>Vouchers</span>
             <br />
-            <span style={{ fontSize: 40, fontWeight: 700 }}>All Products</span>
+            <span style={{ fontSize: 40, fontWeight: 700,  }}>All Products</span>
             <ul
               style={{
                 listStyle: "none",
                 padding: 0,
+                paddingTop: 50,
                 maxWidth: 1800,
                 margin: "0 auto",
-                display: "flex",
+                display: "flex", 
+                flexWrap: "wrap",
                 justifyContent: "space-between"
               }}
             >
               {products.map((item) => (
                 <li
                   key={item.ProductCode}
-                  style={{ padding: 0, maxWidth: 240, float: "left" }}
+                  style={{ paddingBottom: 15, maxWidth: 240, float: "", display: "flex" }}
                 >
                   <Link
                     to={generatePath(

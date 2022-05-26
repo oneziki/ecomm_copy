@@ -13,8 +13,8 @@ import SearchBar from "../components/searchbar/SearchBar";
 import "../components/products-header/ProductsHeader.scss";
 
 function Home({ products, countCartItem }) {
-  console.log(products);
 
+  console.log(products);
   return (
     <div>
       <Page loader={"spin"} color={"#b2fa00"} size={4} duration={1}>
@@ -36,13 +36,14 @@ function Home({ products, countCartItem }) {
               maxWidth: 1800,
               margin: "0 auto",
               display: "flex",
+              flexWrap: "wrap",
               justifyContent: "space-between",
             }}
           >
             {products.map((item) => (
               <li
                 key={item.ProductCode}
-                style={{ padding: 0, maxWidth: 240, float: "left" }}
+                style={{ paddingBottom: 15, maxWidth: 240, float: "" }}
               >
                 <Link
                   to={generatePath(
@@ -50,7 +51,6 @@ function Home({ products, countCartItem }) {
                     {
                       ProductCode: item.ProductCode,
                       FaceValue: item.FaceValue,
-                      // Vendor: item.Vendor.replaceAll(/\W/g, "")
                       Vendor: item.Vendor,
                       Vat: item.Vat,
                     }
@@ -61,7 +61,7 @@ function Home({ products, countCartItem }) {
                     style={{
                       margin: 0,
                       borderRadius: 25,
-                      backgroundColor: "#edeef0ab",
+                      backgroundColor: "white",
                     }}
                   >
                     <img

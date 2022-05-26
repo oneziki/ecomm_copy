@@ -63,12 +63,13 @@
 }
 
 @media only screen and (max-width: 480px) {
+
   #heading {
     font-size: 35px !important;
   }
   .landing {
     .mainLanding {
-
+      padding: 15px !important;
     }
   }
 }

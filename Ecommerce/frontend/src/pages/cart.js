@@ -11,18 +11,26 @@ import {
 import Ymal from "../components/you-might-also-like/ymal";
 
 const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
+
+
+  const handSubmit = () => {
+
+  }
+
   const handleRemove = (ProductCode) => {
     setCart((cart) => cart.filter((item) => item.ProductCode !== ProductCode));
   };
 
   const price = cart.reduce(
-    (total, item) => total + item.amount * item.FaceValue,
+    (total, item) => total + item.quantity * item.FaceValue,
     0
   );
 
   const orderTotal = cart.reduce((total, item) => +price + +item.Vat, 0);
 
   const vat = cart.reduce((total, item) => item.Vat, 12);
+
+  console.log(cart);
 
   return (
     <>
@@ -141,7 +149,7 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                                   height: "35px",
                                 }}
                               >
-                                {item.amount}
+                                {item.quantity}
                               </button>
                               <button
                                 onClick={() =>
@@ -249,9 +257,7 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     <span style={{ float: "right", fontSize: 16 }}>
                       R {price.toFixed(2)}
                     </span>
-                    <span>
-                      
-                    </span>
+                    <span></span>
                   </div>
                   <div className="mt-3">
                     <span style={{ fontSize: 16 }}>VAT</span>
@@ -312,7 +318,9 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                   width: "25%",
                 }}
               >
-                <div style={{padding: 20, background: "white", marginTop: -40}}>
+                <div
+                  style={{ padding: 20, background: "white", marginTop: -40 }}
+                >
                   <span>
                     {" "}
                     <span>logo</span> Secure checkout withh Peach Payment
@@ -432,75 +440,73 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     </svg>
                   </div>
                 </div>
-                <div style={{background: "white"}}>
-                <div
-                  style={{
-                    background: "black",
-                    borderRadius: "20px 20px 0px 0px",
-                  }}
-                >
-                  <div className="p-4">
-                    <div style={{ color: "white", paddingBottom: 20 }}>
-                      {" "}
-                      <span style={{ fontSize: 20, fontWeight: 700 }}>
-                        Totals
-                      </span>{" "}
-                      <span
-                        style={{
-                          float: "right",
-                          fontSize: 20,
-                          fontWeight: 700,
-                        }}
-                      >
-                        R {orderTotal.toFixed(2)}
-                      </span>{" "}
-                    </div>
-                    <Link to="/checkout">
-                    <button
-                      style={{
-                        width: "100%",
-                        height: 48,
-                        borderRadius: 8,
-                        border: "solid #97E128 1px",
-                        margin: 5,
-                        padding: "auto",
-                        backgroundColor: "#97E128",
-                      }}
-
-                    
-                    >
-                      <span
-                        style={{
-                          fontSize: 18,
-                          color: "black",
-                          fontWeight: 600,
-                        }}
-                      >
-                        Continue to Payment{" "}
-                        <span>
-                          <svg
-                            width="20"
-                            height="14"
-                            viewBox="0 0 20 14"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
+                <div style={{ background: "white" }}>
+                  <div
+                    style={{
+                      background: "black",
+                      borderRadius: "20px 20px 0px 0px",
+                    }}
+                  >
+                    <div className="p-4">
+                      <div style={{ color: "white", paddingBottom: 20 }}>
+                        {" "}
+                        <span style={{ fontSize: 20, fontWeight: 700 }}>
+                          Totals
+                        </span>{" "}
+                        <span
+                          style={{
+                            float: "right",
+                            fontSize: 20,
+                            fontWeight: 700,
+                          }}
+                        >
+                          R {orderTotal.toFixed(2)}
+                        </span>{" "}
+                      </div>
+                      <Link to="/checkout">
+                        <button
+                          style={{
+                            width: "100%",
+                            height: 48,
+                            borderRadius: 8,
+                            border: "solid #97E128 1px",
+                            margin: 5,
+                            padding: "auto",
+                            backgroundColor: "#97E128",
+                          }}
+                        >
+                          <span
+                            style={{
+                              fontSize: 18,
+                              color: "black",
+                              fontWeight: 600,
+                            }}
                           >
-                            <path
-                              d="M0.831055 5.91406H19.1181V11.8851C19.1181 12.9896 18.2226 13.8851 17.1181 13.8851H2.83106C1.72649 13.8851 0.831055 12.9896 0.831055 11.8851V5.91406Z"
-                              fill="black"
-                            />
-                            <path
-                              d="M0.831055 2.33398C0.831055 1.22941 1.72649 0.333984 2.83105 0.333984H17.1181C18.2226 0.333984 19.1181 1.22942 19.1181 2.33398V3.52239H0.831055V2.33398Z"
-                              fill="black"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </button>
-                    </Link>
+                            Continue to Payment{" "}
+                            <span>
+                              <svg
+                                width="20"
+                                height="14"
+                                viewBox="0 0 20 14"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M0.831055 5.91406H19.1181V11.8851C19.1181 12.9896 18.2226 13.8851 17.1181 13.8851H2.83106C1.72649 13.8851 0.831055 12.9896 0.831055 11.8851V5.91406Z"
+                                  fill="black"
+                                />
+                                <path
+                                  d="M0.831055 2.33398C0.831055 1.22941 1.72649 0.333984 2.83105 0.333984H17.1181C18.2226 0.333984 19.1181 1.22942 19.1181 2.33398V3.52239H0.831055V2.33398Z"
+                                  fill="black"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
               </div>
             </>
           </div>

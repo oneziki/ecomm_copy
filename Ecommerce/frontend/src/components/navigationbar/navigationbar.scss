@@ -156,7 +156,8 @@ $c-border: #97e128;
         align-items: center;
         justify-content: flex-start;
         img {
-          width: 220px;
+          width: 150px;
+          padding-top: 3px;
         }
       }
       .image1 {
@@ -190,9 +191,11 @@ $c-border: #97e128;
       order: 3;
       justify-content: space-between;
       align-items: center;
+      padding: 10px;
     }
     .bb {
       order: 2;
+      padding-right: 10px !important;
       justify-content: end;
       align-items: center;
     }
