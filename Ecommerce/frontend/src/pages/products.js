@@ -39,13 +39,13 @@ const Products = ({ products, countCartItem }) => {
                 margin: "0 auto",
                 display: "flex", 
                 flexWrap: "wrap",
-                justifyContent: "space-between"
+                justifyContent: "start"
               }}
             >
               {products.map((item) => (
                 <li
                   key={item.ProductCode}
-                  style={{ paddingBottom: 15, maxWidth: 240, float: "", display: "flex" }}
+                  style={{ paddingBottom: 15, maxWidth: 240, float: "", display: "flex", margin: "9px" }}
                 >
                   <Link
                     to={generatePath(
@@ -61,7 +61,7 @@ const Products = ({ products, countCartItem }) => {
                   >
                     <div
                       className="card"
-                      style={{ margin: 0, borderRadius: 25, backgroundColor: "#edeef0ab" }}
+                      style={{ margin: 0, borderRadius: 25, backgroundColor: "#white" }}
                     >
                       <img
                         src={item.Logo}
@@ -70,13 +70,13 @@ const Products = ({ products, countCartItem }) => {
                         style={{ width: "390px !important", borderRadius: 25 }}
                       />
                       <div style={{ marginTop: "10px", margin: 20 }}>
-                        <span>{item.Vendor}</span>
-                        <h6 style={{ fontSize: 19, fontWeight: 600 }}>
+                        <p style={{color: "black"}}>{item.Vendor}</p>
+                        <h6 style={{ fontSize: 19, fontWeight: 600, color: "black" }}>
                           {item.Description}
                         </h6>
-                        <h2 style={{ fontSize: 26, fontWeight: 700 }}>
+                        <h2 style={{ fontSize: 26, fontWeight: 700, color: "black" }}>
                           R {item.FaceValue}{" "}
-                          <span style={{ display: "none" }}>{item.Vat} </span>
+                          <span style={{ display: "none", color: "black" }}>{item.Vat} </span>
                         </h2>
                       </div>
                     </div>

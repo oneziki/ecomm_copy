@@ -6,12 +6,18 @@ import Cart from "./pages/cart";
 import Home from "./pages/home";
 import Navigationbar from "./components/navigationbar/navigationbar";
 import Checkout from "./pages/checkout";
+import ErrorPage from "./pages/ErrorPage";
+import Payment from "./pages/payment";
+import ScrollToTop from "./components/ScrollToTop";
+import Transaction from "./pages/transaction";
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem('cart') || '[]');
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 
 export default function App() {
+  const [response, setResponse] = useState({});
 
-  const token = "ef18f012280c212b9f17ab262adc5ca45925c1467fc64eb32f0071b1e00c43e21fb04eabbbe94cc19151aefefd1708fc8dd1cd127429b60f2592c7a8b7466179782e5e78ac15ba217ff1b67fcab5c053867942dc616ac952e7d7e0fbd2e8e867d6d42a0cb75e6c37e882e87288fff1f5afe2bc0442a601043b0d1b4e0a1305df";
+  const token =
+    "ef18f012280c212b9f17ab262adc5ca45925c1467fc64eb32f0071b1e00c43e21fb04eabbbe94cc19151aefefd1708fc8dd1cd127429b60f2592c7a8b7466179782e5e78ac15ba217ff1b67fcab5c053867942dc616ac952e7d7e0fbd2e8e867d6d42a0cb75e6c37e882e87288fff1f5afe2bc0442a601043b0d1b4e0a1305df";
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(cartFromLocalStorage);
 
@@ -20,12 +26,10 @@ export default function App() {
   }, [cart]);
 
   useEffect(() => {
-    fetch("https://warm-ravine-36464.herokuapp.com/api/products",
-    {
+    fetch("https://warm-ravine-36464.herokuapp.com/api/products", {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
-    }
-    )
+    })
       .then((response) => response.json())
       .then(({ data }) => {
         const allData = data.map(({ id, attributes }) => ({
@@ -35,7 +39,6 @@ export default function App() {
         setProducts(allData);
       });
   }, []);
-  
 
   const handleClick = (item) => {
     if (cart.some((cartItem) => cartItem.ProductCode === item.ProductCode)) {
@@ -77,50 +80,56 @@ export default function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home products={products} countCartItem={cart.length} />} />
-          {/* <Route path="all-categories" element={<AllCategories />} />
-          <Route path="entertainment" element={<Entertainment />} />
-          <Route path="login" element={<Login />} />
-          <Route path="discover" element={<Discover />} />
-          <Route path="netflix" element={<Netflix />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="sign-up" element={<SignUp />} /> */}
-          <Route
-            path="products"
-            element={
-              <Products products={products} countCartItem={cart.length} />
-            }
-          />
-          <Route path="/Navigationbar" element={<Navigationbar />} />
-          <Route path="/Checkout/" element={<Checkout cart={cart}
-                setCart={setCart}
-                handleChange={handleChange}
-                countCartItem={cart.length}/>} />
-          <Route
-            path="/itemDetail/:ProductCode/:FaceValue/:Vendor"
-            element={
-              <ItemDetail
-                products={products}
-                handleClick={handleClick}
-                countCartItem={cart.length}
-              />
-            }
-          />
-          <Route
-            path="/Cart/"
-            element={
-              <Cart
-                cart={cart}
-                setCart={setCart}
-                handleChange={handleChange}
-                countCartItem={cart.length}
-              />
-            }
-          />
-        </Routes>
-      </Router>
+      <ScrollToTop>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home products={products} countCartItem={cart.length} />}
+        />
+        <Route exact path="/payment" element={<Payment response={response} />} />
+        <Route exact path="/transaction" element={<Transaction response={response}/>} />
+        <Route
+          exact
+          path="products"
+          element={<Products products={products} countCartItem={cart.length} />}
+        />
+        <Route path="/Navigationbar" element={<Navigationbar />} />
+        <Route
+          path="/Checkout/"
+          element={
+            <Checkout
+              setResponse={setResponse}
+              cart={cart}
+              setCart={setCart}
+              handleChange={handleChange}
+              countCartItem={cart.length}
+            />
+          }
+        />
+        <Route
+          exact path="/itemDetail/:ProductCode/:FaceValue/:Vendor"
+          element={
+            <ItemDetail
+              products={products}
+              handleClick={handleClick}
+              countCartItem={cart.length}
+            />
+          }
+        />
+        <Route
+          exact path="/Cart/"
+          element={
+            <Cart
+              cart={cart}
+              setCart={setCart}
+              handleChange={handleChange}
+              countCartItem={cart.length}
+            />
+          }
+        />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+      </ScrollToTop>
     </div>
   );
 }

@@ -28,16 +28,16 @@ function footer() {
 
         <Row>
           <Col id="terms">
-            <a href="#">Help</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms and Condition</a>
+            <a href="/">Help</a>
+            <a href="/">Privacy Policy</a>
+            <a href="/">Terms and Condition</a>
             <hr className="ww"/>
           </Col>
         </Row>
 
         <Row>
           <Col id="footer-credits">
-            <a href="">© Flash Group 2021 | All Rights Reserved</a>
+            <a href="/">© Flash {(new Date().getFullYear())} | All Rights Reserved.</a>
           </Col>
         </Row>
       </Container>

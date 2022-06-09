@@ -14,7 +14,7 @@ import "../components/products-header/ProductsHeader.scss";
 
 function Home({ products, countCartItem }) {
 
-  console.log(products);
+  // console.log(products);
   return (
     <div>
       <Page loader={"spin"} color={"#b2fa00"} size={4} duration={1}>
@@ -71,11 +71,11 @@ function Home({ products, countCartItem }) {
                       style={{ width: "390px !important", borderRadius: 25 }}
                     />
                     <div style={{ marginTop: "10px", margin: 20 }}>
-                      <span>{item.Vendor}</span>
-                      <h6 style={{ fontSize: 19, fontWeight: 600 }}>
+                      <p color="black">{item.Vendor}</p>
+                      <h6 style={{ fontSize: 19, fontWeight: 600, color: "black" }}>
                         {item.Description}
                       </h6>
-                      <h2 style={{ fontSize: 26, fontWeight: 700 }}>
+                      <h2 style={{ fontSize: 26, fontWeight: 700, color: "black" }}>
                         R {item.FaceValue}{" "}
                         <span style={{ display: "none" }}>{item.Vat} </span>
                       </h2>

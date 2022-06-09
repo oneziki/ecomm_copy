@@ -1,37 +1,32 @@
-import React, { useState, useEffect } from "react";
-import Axios from "axios";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Navigationbar from "../components/navigationbar/navigationbar";
 import Footer from "../components/footer/footer";
-import "../pages/ProductDetails.scss";
+import "../pages/itemDetails.scss";
 import "bootstrap";
 
 function ItemDetail({ handleClick, products, countCartItem }) {
-
-
   const { ProductCode } = useParams();
   const item = products.find(
     (item) => String(item.ProductCode) === ProductCode
   );
 
+  const [hidden, setHidden] = useState(true);
 
-
+  console.log(item);
   return (
     <>
-      <Navigationbar
-        countCartItem={countCartItem}
-      />
-      <div style={{background: "black", height: "74px"}}>
-      </div>
-      <Container className="mainContainer">
+      <Navigationbar countCartItem={countCartItem} />
+      <div style={{ background: "black", height: "74px" }}></div>
+      <Container className="mainContainer" style={{marginBottom: "100px"}}>
         <div className="containter productsDetails mb-4">
           <div class="row">
             <div className="col-md-12 pt-1 pb-5">
               <row>
                 <ul className="breadcrumb">
                   <li className="itemStyle">
-                    <a href="/" class="Active">
+                    <a href="/" class="Active" style={{ color: "black" }}>
                       Discover
                     </a>
                     <span className="p-1">
@@ -39,13 +34,17 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                     </span>
                   </li>
                   <li className="itemStyle">
-                    <a href="/">Categories</a>
+                    <a href="/" style={{ color: "black" }}>
+                      Categories
+                    </a>
                     <span className="p-1">
                       <i class="bi bi-chevron-right"></i>
                     </span>
                   </li>
                   <li className="itemStyle">
-                    <a href="/">Entertainment</a>
+                    <a href="/" style={{ color: "black" }}>
+                      Entertainment
+                    </a>
                   </li>
                 </ul>
               </row>
@@ -53,67 +52,77 @@ function ItemDetail({ handleClick, products, countCartItem }) {
             <div className="col-md-6">
               <>
                 <img
-                  src={item.Logo}
+                  src={item.DetailsImage}
                   alt=""
                   className="img"
-                  style={{ width: "60%" }}
+                  style={{ width: "90%" }}
                 />
                 <div className="productinfo">
                   <div className="py-2 mt-4">
-                    <span className="h3Title">Details</span>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}></p>
+                    <span className="h3Title">{item.Title}</span>
+                    <br />
+                    <span style={{ fontSize: 14, margin: 0, padding: 0 }}>
+                      {item.Details}
+                    </span>
                   </div>
                   <div className="py-2">
-                    <span className="h3Title">How to redeem your voucher</span>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      1. Sign in by going to store.playstation.com
-                    </p>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      2. Select Redeem codes from the menu.
-                    </p>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      3. Enter PIN found on your reciept and select Redeem
-                    </p>
+                    <span className="h3Title">{item.Title2}</span>
+                    <br />
+                    <span style={{ fontSize: 14, margin: 0, padding: 0 }}>
+                      {item.Details2}
+                    </span>
                   </div>
                   <div className="py-2">
-                    <span className="h3Title">Terms & Conditions</span>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      Valid for 12 months from date of purchase.
-                    </p>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      Valid for use in South Africa only. Product is none
-                      returnable or refundable
-                    </p>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      For full T's & C's go to:{""}
-                      <a
-                        className={{ color: "#008FEB" }}
-                        href="https://www.playstation.com/en-za/legal/sen-voucher-code-terms-and-conditions/"
-                      >
-                        {" "}
-                        https://www.playstation.com/en-za/legal/sen-voucher-code-terms-and-conditions/
-                      </a>
-                    </p>
+                    <span className="h3Title">{item.Title3}</span>
+                    <br />
+                    <span style={{ fontSize: 14, margin: 0, padding: 0 }}>
+                      {item.Details3}
+                    </span>
                   </div>
-                  <div className="py-2">
-                    <span className="h3Title">FAQ / Support</span>
-                    <p style={{ fontSize: 14, margin: 0, padding: 0 }}>
-                      Have some questions? Visit:{" "}
-                      <a
-                        className={{ color: "#008FEB" }}
-                        href="https://www.playstation.com/en-za/support/"
-                      >
-                        {" "}
-                        https://www.playstation.com/en-za/support/
-                      </a>
-                    </p>
-                  </div>
+
                 </div>
               </>
             </div>
             <div className="col-md-6">
-              <div className="secondDiv pt-2">
-                <div className="p-4 mb-2">
+              {!hidden ? (
+                <div className="cartItemDisplay">
+                  <span style={{ maxWidth: "40px" }}>
+                    <span style={{ padding: "10px" }}>
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 22 22"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M0 11C0 4.9346 4.9346 0 11 0C17.0654 0 22 4.9346 22 11C22 17.0654 17.0654 22 11 22C4.9346 22 0 17.0654 0 11ZM15.8618 6.25863L9.69755 13.2668L6.61321 10.079L5.39145 11.2611L9.11643 15.1111L9.75707 15.7732L10.3656 15.0814L17.1382 7.38139L15.8618 6.25863Z"
+                          fill="#88CA24"
+                        />
+                      </svg>
+                    </span>
+                    <span style={{ fontSize: "16px", fontWeight: 700 }}>
+                      Added to cart
+                    </span>
+                    <Link to="/cart">
+                      <span
+                        style={{
+                          fontSize: "16px",
+                          fontWeight: 700,
+                          color: "#8BD41F",
+                          float: "right",
+                        }}
+                      >
+                        VIEW
+                      </span>
+                    </Link>
+                  </span>
+                </div>
+              ) : null}
+              <div className="secondDiv">
+                <div className="p-4 mb-2" style={{ width: "100%" }}>
                   <span className="s1">Digidev</span>
                   <span className="s2">
                     Share{" "}
@@ -133,20 +142,25 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                     </span>
                   </span>
                 </div>
-                <div className="px-4 mb-3 mde">
+                <div className="px-4 mb-3 mde" style={{ width: "100%" }}>
                   <h2 className="h2Title">{item.Vendor}</h2>
                 </div>
-                <div className="px-4 mb-2">
-                  <span className="s3">
+                <div className="px-4 mb-2" style={{ width: "100%" }}>
+                  {/* <span className="s3" style={{marginBottom: 2}}>
                     <b>from</b>
-                  </span>
-                  <h1 className="h1Title">
-                    <b>R {item.FaceValue.toFixed(2)}</b>
-                  </h1>
+                  </span> */}
+                  <b>
+                    <p
+                      className=""
+                      style={{ fontSize: "36px", fontWeight: 700 }}
+                    >
+                      R {item.FaceValue.toFixed(2)}
+                    </p>
+                  </b>
 
                   <span className="s4">Product Codes: {item.ProductCode}</span>
                 </div>
-                <div className="details2" style={{display: "none"}}>
+                {/* <div className="details2" style={{ display: "none" }}>
                   <div className="p-4">
                     <span className="s5">choose an option</span>
                     <br />
@@ -165,9 +179,9 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                   <div className="qualitySection">
                     <span className="s7">quantity</span>
                   </div>
-                </div>
+                </div> */}
                 <hr />
-                <div className="p-4 mb-4">
+                <div className="p-4 mb-4" style={{ width: "100%" }}>
                   <span className="s8">
                     <span>
                       <img src="" alt="" />
@@ -189,11 +203,13 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                     backgroundColor: "black",
                     padding: 25,
                     borderRadius: 20,
+                    width: "100%",
+                    display: "flex",
                   }}
                 >
                   <button
                     style={{
-                      width: 240,
+                      width: "50%",
                       height: 62,
                       borderRadius: 8,
                       border: "solid white 1px",
@@ -223,8 +239,9 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                     </span>
                   </button>
                   <button
+                    className="btn2"
                     style={{
-                      width: 240,
+                      width: "50%",
                       height: 62,
                       borderRadius: 8,
                       border: "solid #97E128 1px",
@@ -232,7 +249,7 @@ function ItemDetail({ handleClick, products, countCartItem }) {
                       padding: "auto",
                       backgroundColor: "#97E128",
                     }}
-                    onClick={() => handleClick(item)}
+                    onClick={() => [handleClick(item), setHidden((s) => !s)]}
                   >
                     <span
                       style={{ fontSize: 18, color: "black", fontWeight: 600 }}

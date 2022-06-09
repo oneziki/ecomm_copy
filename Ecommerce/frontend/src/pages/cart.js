@@ -1,4 +1,3 @@
-import { ListItemAvatar } from "@material-ui/core";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -11,12 +10,6 @@ import {
 import Ymal from "../components/you-might-also-like/ymal";
 
 const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
-
-
-  const handSubmit = () => {
-
-  }
-
   const handleRemove = (ProductCode) => {
     setCart((cart) => cart.filter((item) => item.ProductCode !== ProductCode));
   };
@@ -30,6 +23,8 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
 
   const vat = cart.reduce((total, item) => item.Vat, 12);
 
+  
+
   console.log(cart);
 
   return (
@@ -42,7 +37,7 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                 <div class="col-md-12 p-5">
                   <div className="py-4">
                     <Link to="/products">
-                      <span style={{ fontSize: 16, fontWeight: 700 }}>
+                      <span style={{ fontSize: 16, fontWeight: 700, color: "black" }}>
                         <span>
                           <i class="bi bi-arrow-left-short"></i>
                         </span>
@@ -259,12 +254,12 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     </span>
                     <span></span>
                   </div>
-                  <div className="mt-3">
+                  {/* <div className="mt-3">
                     <span style={{ fontSize: 16 }}>VAT</span>
                     <span style={{ float: "right", fontSize: 16 }}>
                       R {vat}.00
                     </span>
-                  </div>
+                  </div> */}
                   <div className="mt-3">
                     <span style={{ fontSize: 16 }}>Order Total</span>
                     <span
@@ -273,7 +268,7 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                       R {orderTotal.toFixed(2)}
                     </span>
                   </div>
-                  <div className="mt-3">
+                  {/* <div className="mt-3">
                     <span
                       style={{
                         fontSize: 16,
@@ -293,9 +288,9 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     >
                       R 0.00
                     </span>
-                  </div>
+                  </div> */}
                 </div>
-                <div class="col-md-12 pt-5">
+                {/* <div class="col-md-12 pt-5">
                   <input
                     style={{
                       width: "100%",
@@ -307,12 +302,11 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                     }}
                     type="text"
                   />
-                </div>
+                </div> */}
               </div>
               <div
                 class="col-md-12 m-0 p-0"
                 style={{
-                  height: 230,
                   position: "fixed",
                   bottom: 0,
                   width: "25%",
@@ -467,10 +461,10 @@ const Cart = ({ cart, setCart, handleChange, countCartItem }) => {
                         <button
                           style={{
                             width: "100%",
-                            height: 48,
-                            borderRadius: 8,
+                            height: "48px",
+                            borderRadius: "8px",
                             border: "solid #97E128 1px",
-                            margin: 5,
+                            margin: "5px",
                             padding: "auto",
                             backgroundColor: "#97E128",
                           }}
